@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class GenerateCharSheet : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+   public double CreateLuck()
+    {
+        return Mathf.Sqrt(Random.Range(4, 100));
+    }
+
+    public double CreateStrenght()
+    {
+        return Mathf.Sqrt(Random.Range(4, 100));
+    }
+
+    public double CreateDex()
+    {
+        return Mathf.Sqrt(Random.Range(4, 100));
+    }
+
+    public double CreateSpeed()
+    {
+        return Mathf.Sqrt(Random.Range(4, 100));
+    }
 }
