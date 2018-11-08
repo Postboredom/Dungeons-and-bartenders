@@ -8324,7 +8324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7f8a8e1d9790c499ca6b7129f63dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: v
+  type: Viking
   chars:
   - {fileID: 1820142044437806, guid: 2b52d09f369bbf94baaebe9e443786d9, type: 2}
   - {fileID: 1751819297610946, guid: b2452e9b23187c04185cdfb671c10131, type: 2}
