@@ -19,7 +19,7 @@ public class NpcSpawn : MonoBehaviour
     private void Awake()
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray();
-        Debug.Log(material.Length);
+        Debug.Log(chars.Length);
         tempmat = new List<Material>();
     }
 
@@ -28,13 +28,14 @@ public class NpcSpawn : MonoBehaviour
         for(int ii = 0; ii < amount; ii++)
         {
             CreateRandNPC();
-            if(type != null)
+            if(type != "")
             {
-                SpawnNPC(type);
+               // SpawnNPC(type);
+
             }
-            
+
         }
-        type = null;
+        type = "";
         amount = 0;
     }
 
@@ -42,16 +43,42 @@ public class NpcSpawn : MonoBehaviour
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray();
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
-        newchar.GetComponentInChildren<SkinnedMeshRenderer>().material = material[Random.Range(0, material.Length - 1)];
+        tempmat.Add(material[Random.Range(0, material.Length - 1)]);
+        newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
         newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
+
+
+        if(newchar.GetComponent<NavMeshAgent>().isActiveAndEnabled)
+        {
+            newchar.GetComponent<NavMeshAgent>().Warp(spawnpoint.transform.position);
+        }
+        else
+        {
+            newchar.transform.position = spawnpoint.transform.position;
+        }
+
+
         Instantiate(newchar);
     }
 
     void SpawnNPC(string type)
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.name.Contains(type)).ToArray();
+        Debug.Log(chars.Length);
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
-        newchar.GetComponentInChildren<SkinnedMeshRenderer>().material = material[Random.Range(0, material.Length - 1)];
+        tempmat.Add(material[Random.Range(0, material.Length - 1)]);
+        newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
+        newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        if (newchar.GetComponent<NavMeshAgent>().isActiveAndEnabled)
+        {
+            newchar.GetComponent<NavMeshAgent>().Warp(spawnpoint.transform.position);
+        }
+        else
+        {
+            newchar.transform.position = spawnpoint.transform.position;
+        }
+
         Instantiate(newchar);
     }
 
