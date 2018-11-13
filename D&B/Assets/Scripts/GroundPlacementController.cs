@@ -5,9 +5,9 @@ using UnityEngine;
 public class GroundPlacementController : MonoBehaviour
 {
     [SerializeField]
-    private GameObject[] placeableObjectPrefabs;
+    private GameObject[] placeableObjectPrefabs; //array of objects that could be placed
 
-    private GameObject currentPlaceableObject;
+    private GameObject currentPlaceableObject; //current object that the player is trying to place
 
     private float mouseWheelRotation;
     private int currentPrefabIndex = -1;
@@ -16,7 +16,7 @@ public class GroundPlacementController : MonoBehaviour
     {
         HandleNewObjectHotkey();
 
-        if (currentPlaceableObject != null)
+        if (currentPlaceableObject != null) //if the player is trying to place an object
         {
             MoveCurrentObjectToMouse();
             RotateFromMouseWheel();
@@ -24,6 +24,7 @@ public class GroundPlacementController : MonoBehaviour
         }
     }
 
+    //this function handles the changing of the current placeable object
     private void HandleNewObjectHotkey()
     {
         for (int i = 0; i < placeableObjectPrefabs.Length; i++)
@@ -56,6 +57,7 @@ public class GroundPlacementController : MonoBehaviour
         return currentPlaceableObject != null && currentPrefabIndex == i;
     }
 
+    //this function moves the object to where the mouse is and rotates it to fit the orientation of the environment
     private void MoveCurrentObjectToMouse()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -68,6 +70,7 @@ public class GroundPlacementController : MonoBehaviour
         }
     }
 
+    //this function allows the player to rotate objects using the mouse wheel
     private void RotateFromMouseWheel()
     {
         Debug.Log(Input.mouseScrollDelta);
@@ -75,10 +78,12 @@ public class GroundPlacementController : MonoBehaviour
         currentPlaceableObject.transform.Rotate(Vector3.up, mouseWheelRotation * 10f);
     }
 
+    //this function handles placing the object when the player clicks
     private void ReleaseIfClicked()
     {
         if (Input.GetMouseButtonDown(0))
         {
+            currentPlaceableObject.layer = 0;
             currentPlaceableObject = null;
         }
     }
