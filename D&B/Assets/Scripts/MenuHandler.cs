@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class MenuHandler : MonoBehaviour {
 
+    public GameObject AreaDecoratorUI;
+
 	// Use this for initialization
 	void Start () {
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		
-	}
+	void Update ()
+    {
+        if(Input.GetKeyDown("I"))
+        {
+            
+        }
+    }
 }
