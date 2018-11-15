@@ -536,6 +536,8 @@ GameObject:
   - component: {fileID: 195343602855822828}
   - component: {fileID: 114890887899426438}
   - component: {fileID: 114213093028229738}
+  - component: {fileID: 114101916357561918}
+  - component: {fileID: 114850197947287986}
   m_Layer: 0
   m_Name: Chr_Dungeon_GoblinShaman_01
   m_TagString: NPC
@@ -1274,6 +1276,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114101916357561918
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849251924462804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d2cc71bae513240bd53ce9b584a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luck: 0
+  strength: 0
+  dex: 0
+  speed: 0
 --- !u!114 &114213093028229738
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1286,6 +1303,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114850197947287986
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1849251924462804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2ffb5acb317d94e8764e5de04ecf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114890887899426438
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1415,7 +1443,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 2.4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

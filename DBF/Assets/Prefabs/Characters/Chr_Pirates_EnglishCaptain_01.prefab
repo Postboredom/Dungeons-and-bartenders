@@ -160,6 +160,8 @@ GameObject:
   - component: {fileID: 195123491010759268}
   - component: {fileID: 114823566109264426}
   - component: {fileID: 114090287186762166}
+  - component: {fileID: 114221420237075806}
+  - component: {fileID: 114071088623994222}
   m_Layer: 0
   m_Name: Chr_Pirates_EnglishCaptain_01
   m_TagString: NPC
@@ -1182,6 +1184,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114071088623994222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211961349147920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2ffb5acb317d94e8764e5de04ecf85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114090287186762166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1194,6 +1207,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114221420237075806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1211961349147920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d2cc71bae513240bd53ce9b584a240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  luck: 0
+  strength: 0
+  dex: 0
+  speed: 0
 --- !u!114 &114823566109264426
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1323,7 +1351,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 2.4
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
