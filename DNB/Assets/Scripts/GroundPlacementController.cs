@@ -8,6 +8,7 @@ public class GroundPlacementController : MonoBehaviour
     private GameObject[] placeableObjectPrefabs; //array of objects that could be placed
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
+    public GameObject currentPlaceableObjectNameHolder;
 
     private float mouseWheelRotation;
     private int currentPrefabIndex = -1;
@@ -25,6 +26,7 @@ public class GroundPlacementController : MonoBehaviour
     }
 
     //this function handles the changing of the current placeable object
+    /*
     private void HandleNewObjectHotkey()
     {
         for (int i = 0; i < placeableObjectPrefabs.Length; i++)
@@ -42,16 +44,26 @@ public class GroundPlacementController : MonoBehaviour
                     {
                         Destroy(currentPlaceableObject);
                     }
-
                     currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
                     currentPrefabIndex = i;
+                     
                 }
 
                 break;
             }
         }
     }
-
+    */
+    private void HandleNewObjectHotkey()
+    {
+        for(int i = 0; i < placeableObjectPrefabs.Length; i++)
+        {
+            if(placeableObjectPrefabs[i].name == currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName)
+            {
+                Debug.Log("I'd like to spawn this item");
+            }
+        }
+    }
     private bool PressedKeyOfCurrentPrefab(int i)
     {
         return currentPlaceableObject != null && currentPrefabIndex == i;
