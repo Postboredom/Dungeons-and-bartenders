@@ -9,13 +9,19 @@ public class GroundPlacementController : MonoBehaviour
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
+    
 
     private float mouseWheelRotation;
     private int currentPrefabIndex = -1;
 
+   
     private void Update()
     {
-        HandleNewObjectHotkey();
+        if(currentPlaceableObject == null)
+        {
+            HandleNewObjectHotkey();
+        }
+        
 
         if (currentPlaceableObject != null) //if the player is trying to place an object
         {
@@ -58,10 +64,14 @@ public class GroundPlacementController : MonoBehaviour
     {
         for(int i = 0; i < placeableObjectPrefabs.Length; i++)
         {
-            if(placeableObjectPrefabs[i].name == currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName)
+            if(placeableObjectPrefabs[i].name == currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName && !currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced)
             {
-                Debug.Log("I'd like to spawn this item");
+                Debug.Log("I'd like to spawn a " + currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName);
+                currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                
             }
+           
         }
     }
     private bool PressedKeyOfCurrentPrefab(int i)
@@ -97,6 +107,7 @@ public class GroundPlacementController : MonoBehaviour
         {
             currentPlaceableObject.layer = 0;
             currentPlaceableObject = null;
+            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
         }
     }
 }

@@ -9,14 +9,15 @@ public class MenuHandler : MonoBehaviour {
     bool visibleUI = false;
     public GameObject playerObject;
     public string currentPlaceableObjectName;
+    public bool isObjectPlaced;
 
     // Update is called once per frame
     void Update()
     {
-        MenuToggle();
+        MenuToggleOn();
     }
 
-    void MenuToggle()
+    void MenuToggleOn()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
@@ -27,18 +28,24 @@ public class MenuHandler : MonoBehaviour {
                 areaDecoratorUI.SetActive(true);
                 playerObject.GetComponent<vp_FPInput>().MouseCursorForced = true;
             }
-            else
+            else 
             {
-                playerObject.GetComponent<vp_FPInput>().MouseCursorForced = false;
-                areaDecoratorUI.SetActive(false);
-                Cursor.visible = false;
-                visibleUI = false;
+                MenuToggleOff();
             }
+         
         }
+    }
+    public void MenuToggleOff()
+    {
+        playerObject.GetComponent<vp_FPInput>().MouseCursorForced = false;
+        areaDecoratorUI.SetActive(false);
+        Cursor.visible = false;
+        visibleUI = false;
     }
     public void ObjectButtonPressed()
     {
         currentPlaceableObjectName = EventSystem.current.currentSelectedGameObject.name;
         Debug.Log(currentPlaceableObjectName);
+        isObjectPlaced = false;
     }
 }
