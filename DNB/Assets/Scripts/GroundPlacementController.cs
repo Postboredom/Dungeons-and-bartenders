@@ -9,12 +9,11 @@ public class GroundPlacementController : MonoBehaviour
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
-    
+
+    public bool editModeOn;
 
     private float mouseWheelRotation;
-    private int currentPrefabIndex = -1;
 
-   
     private void Update()
     {
         if(currentPlaceableObject == null)
@@ -27,39 +26,11 @@ public class GroundPlacementController : MonoBehaviour
         {
             MoveCurrentObjectToMouse();
             RotateFromMouseWheel();
-            ReleaseIfClicked();
+            StartCoroutine (ReleaseIfClicked());
         }
     }
 
     //this function handles the changing of the current placeable object
-    /*
-    private void HandleNewObjectHotkey()
-    {
-        for (int i = 0; i < placeableObjectPrefabs.Length; i++)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha0 + 1 + i))
-            {
-                if (PressedKeyOfCurrentPrefab(i))
-                {
-                    Destroy(currentPlaceableObject);
-                    currentPrefabIndex = -1;
-                }
-                else
-                {
-                    if (currentPlaceableObject != null)
-                    {
-                        Destroy(currentPlaceableObject);
-                    }
-                    currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
-                    currentPrefabIndex = i;
-                     
-                }
-
-                break;
-            }
-        }
-    }
-    */
     private void HandleNewObjectHotkey()
     {
         for(int i = 0; i < placeableObjectPrefabs.Length; i++)
@@ -73,10 +44,22 @@ public class GroundPlacementController : MonoBehaviour
             }
            
         }
+        if(Input.GetMouseButtonDown(0) && editModeOn)
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+            RaycastHit hitInfo;
+            if(Physics.Raycast(ray, out hitInfo))
+            {
+                currentPlaceableObject = hitInfo.transform.gameObject;
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+            }
+        }
     }
-    private bool PressedKeyOfCurrentPrefab(int i)
+
+    public void EditMode()
     {
-        return currentPlaceableObject != null && currentPrefabIndex == i;
+        editModeOn = !editModeOn;
     }
 
     //this function moves the object to where the mouse is and rotates it to fit the orientation of the environment
@@ -101,13 +84,16 @@ public class GroundPlacementController : MonoBehaviour
     }
 
     //this function handles placing the object when the player clicks
-    private void ReleaseIfClicked()
+    IEnumerator ReleaseIfClicked()
     {
+        yield return new WaitForSeconds(1);
         if (Input.GetMouseButtonDown(0))
         {
             currentPlaceableObject.layer = 0;
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
+            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+            editModeOn = false;
         }
     }
 }

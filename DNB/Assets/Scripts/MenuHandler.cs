@@ -14,19 +14,16 @@ public class MenuHandler : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        MenuToggleOn();
+        MenuToggler();
     }
 
-    void MenuToggleOn()
+    void MenuToggler()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
             if (visibleUI == false)
             {
-                visibleUI = true;
-                Cursor.visible = true;
-                areaDecoratorUI.SetActive(true);
-                playerObject.GetComponent<vp_FPInput>().MouseCursorForced = true;
+                MenuToggleOn();
             }
             else 
             {
@@ -34,6 +31,13 @@ public class MenuHandler : MonoBehaviour {
             }
          
         }
+    }
+    public void MenuToggleOn()
+    {
+        visibleUI = true;
+        Cursor.visible = true;
+        areaDecoratorUI.SetActive(true);
+        playerObject.GetComponent<vp_FPInput>().MouseCursorForced = true;
     }
     public void MenuToggleOff()
     {
