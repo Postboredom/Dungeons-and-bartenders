@@ -10,7 +10,8 @@ public class GroundPlacementController : MonoBehaviour
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
 
-    public bool editModeOn;
+    public bool editModeOn = false;
+    public bool deleteModeOn = false;
 
     private float mouseWheelRotation;
 
@@ -51,8 +52,19 @@ public class GroundPlacementController : MonoBehaviour
             RaycastHit hitInfo;
             if(Physics.Raycast(ray, out hitInfo))
             {
-                currentPlaceableObject = hitInfo.transform.gameObject;
-                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                if(deleteModeOn)
+                {
+                    currentPlaceableObject = hitInfo.transform.gameObject;
+                    currentPlaceableObject.layer = 2;
+                    currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                    Destroy(currentPlaceableObject);
+                }
+                else
+                {
+                    currentPlaceableObject = hitInfo.transform.gameObject;
+                    currentPlaceableObject.layer = 2;
+                    currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                }
             }
         }
     }
@@ -60,6 +72,12 @@ public class GroundPlacementController : MonoBehaviour
     public void EditMode()
     {
         editModeOn = !editModeOn;
+        
+    }
+
+    public void DeleteMode()
+    {
+        deleteModeOn = !deleteModeOn;
     }
 
     //this function moves the object to where the mouse is and rotates it to fit the orientation of the environment
