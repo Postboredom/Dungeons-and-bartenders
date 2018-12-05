@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 195352357006576230}
   - component: {fileID: 114666558147695176}
   - component: {fileID: 114524634901218494}
+  - component: {fileID: 114879420315548626}
   m_Layer: 0
   m_Name: Chr_Adventure_Viking_01
   m_TagString: NPC
@@ -1213,6 +1214,20 @@ MonoBehaviour:
   m_MoveSpeedMultiplier: 1
   m_AnimSpeedMultiplier: 1
   m_GroundCheckDistance: 0.4
+--- !u!114 &114879420315548626
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1322933263221568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb1c04486cf04fd9844f9d83ac4938d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiState: 0
+  timer: 0
+  target: {fileID: 0}
 --- !u!136 &136266347963871988
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1323,7 +1338,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

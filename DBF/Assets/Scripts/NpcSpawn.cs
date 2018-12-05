@@ -45,7 +45,7 @@ public class NpcSpawn : MonoBehaviour
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
         tempmat.Add(material[Random.Range(0, material.Length - 1)]);
         newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
-        newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
+        //newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
 
 
         if(newchar.GetComponent<NavMeshAgent>().isActiveAndEnabled)
@@ -68,7 +68,7 @@ public class NpcSpawn : MonoBehaviour
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
         tempmat.Add(material[Random.Range(0, material.Length - 1)]);
         newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
-        newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
+        //newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
 
         if (newchar.GetComponent<NavMeshAgent>().isActiveAndEnabled)
         {

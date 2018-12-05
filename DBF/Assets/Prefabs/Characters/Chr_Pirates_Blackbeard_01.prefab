@@ -491,6 +491,7 @@ GameObject:
   - component: {fileID: 195176315702297082}
   - component: {fileID: 114905451740846512}
   - component: {fileID: 114232906746540660}
+  - component: {fileID: 114854422211227464}
   m_Layer: 0
   m_Name: Chr_Pirates_Blackbeard_01
   m_TagString: NPC
@@ -1194,6 +1195,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114854422211227464
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1854748929032668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb1c04486cf04fd9844f9d83ac4938d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiState: 0
+  timer: 0
+  target: {fileID: 0}
 --- !u!114 &114905451740846512
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1323,7 +1338,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

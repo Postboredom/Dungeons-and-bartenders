@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 195049630916157124}
   - component: {fileID: 114116978173163416}
   - component: {fileID: 114146270296919840}
+  - component: {fileID: 114607668029205570}
   m_Layer: 0
   m_Name: Chr_Fantasy_PeasantWoman_01
   m_TagString: NPC
@@ -1213,6 +1214,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114607668029205570
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698248252979436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb1c04486cf04fd9844f9d83ac4938d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiState: 0
+  timer: 0
+  target: {fileID: 0}
 --- !u!136 &136899556148862366
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1323,7 +1338,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

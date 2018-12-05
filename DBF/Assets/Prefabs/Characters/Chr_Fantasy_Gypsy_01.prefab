@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 195043378903492710}
   - component: {fileID: 114385364555649008}
   - component: {fileID: 114539493431068930}
+  - component: {fileID: 114863961072778744}
   m_Layer: 0
   m_Name: Chr_Fantasy_Gypsy_01
   m_TagString: NPC
@@ -1213,6 +1214,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &114863961072778744
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1598155033503542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb1c04486cf04fd9844f9d83ac4938d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aiState: 0
+  timer: 0
+  target: {fileID: 0}
 --- !u!136 &136863863676656236
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -1323,7 +1338,7 @@ NavMeshAgent:
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1.75
+  m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
