@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GroundPlacementController : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject[] placeableObjectPrefabs; //array of objects that could be placed
+   
+    public GameObject[] placeableObjectPrefabs; //array of objects that could be placed
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
@@ -131,6 +131,7 @@ public class GroundPlacementController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && BarStatsHandler.GetComponent<BarStatsHandler>().totalGold >= currentPlaceableObject.GetComponent<ItemProperties>().goldCost)
         {
             BarStatsHandler.GetComponent<BarStatsHandler>().totalGold -= currentPlaceableObject.GetComponent<ItemProperties>().goldCost;
+            BarStatsHandler.GetComponent<BarStatsHandler>().totalBarAttractiveness += currentPlaceableObject.GetComponent<ItemProperties>().barAttraction;
             currentPlaceableObject.layer = 0;
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
