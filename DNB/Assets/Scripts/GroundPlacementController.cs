@@ -9,6 +9,7 @@ public class GroundPlacementController : MonoBehaviour
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
+    public GameObject BarStatsHandler;
 
     public bool editModeOn = false;
     public bool deleteModeOn = false;
@@ -25,8 +26,8 @@ public class GroundPlacementController : MonoBehaviour
 
         if (currentPlaceableObject != null) //if the player is trying to place an object
         {
-            MoveCurrentObjectToMouse();
-            RotateFromMouseWheel();
+            StartCoroutine (MoveCurrentObjectToMouse());
+            StartCoroutine (RotateFromMouseWheel());
             StartCoroutine (ReleaseIfClicked());
         }
     }
@@ -40,8 +41,16 @@ public class GroundPlacementController : MonoBehaviour
             {
                 Debug.Log("I'd like to spawn a " + currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName);
                 currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
-                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
-                
+                if(CostTooMuch())
+                {
+                    currentPlaceableObject = null;
+                    Debug.Log("You are too broke");
+                }
+                else
+                {
+                    currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                }
+               
             }
            
         }
@@ -80,9 +89,22 @@ public class GroundPlacementController : MonoBehaviour
         deleteModeOn = !deleteModeOn;
     }
 
-    //this function moves the object to where the mouse is and rotates it to fit the orientation of the environment
-    private void MoveCurrentObjectToMouse()
+    private bool CostTooMuch()
     {
+        if(currentPlaceableObject.GetComponent<ItemProperties>().goldCost > BarStatsHandler.GetComponent<BarStatsHandler>().totalGold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //this function moves the object to where the mouse is and rotates it to fit the orientation of the environment
+    IEnumerator MoveCurrentObjectToMouse()
+    {
+        yield return new WaitForSeconds(1);
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hitInfo;
@@ -94,8 +116,9 @@ public class GroundPlacementController : MonoBehaviour
     }
 
     //this function allows the player to rotate objects using the mouse wheel
-    private void RotateFromMouseWheel()
+    IEnumerator RotateFromMouseWheel()
     {
+        yield return new WaitForSeconds(1);
         Debug.Log(Input.mouseScrollDelta);
         mouseWheelRotation += Input.mouseScrollDelta.y;
         currentPlaceableObject.transform.Rotate(Vector3.up, mouseWheelRotation * 10f);
@@ -105,13 +128,20 @@ public class GroundPlacementController : MonoBehaviour
     IEnumerator ReleaseIfClicked()
     {
         yield return new WaitForSeconds(1);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && BarStatsHandler.GetComponent<BarStatsHandler>().totalGold >= currentPlaceableObject.GetComponent<ItemProperties>().goldCost)
         {
+            BarStatsHandler.GetComponent<BarStatsHandler>().totalGold -= currentPlaceableObject.GetComponent<ItemProperties>().goldCost;
             currentPlaceableObject.layer = 0;
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+            Debug.Log(BarStatsHandler.GetComponent<BarStatsHandler>().totalGold);
             editModeOn = false;
         }
+        else
+        {
+            Debug.Log("You broke bitch");
+        }
+             
     }
 }
