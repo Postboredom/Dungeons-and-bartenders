@@ -8,6 +8,7 @@ public class BarStatsHandler : MonoBehaviour {
 
     public int totalGold;
     public int totalBarAttractiveness;
+    public bool secondStory;
 
     [SerializeField]
     private Text goldAmountText;
@@ -19,6 +20,7 @@ public class BarStatsHandler : MonoBehaviour {
 
         totalGold = 50;
         totalBarAttractiveness = 0;
+        secondStory = false;
 	}
 	
 	// Update is called once per frame

@@ -43,8 +43,22 @@ public class GroundPlacementController : MonoBehaviour
                 currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
                 if(CostTooMuch())
                 {
+                    Destroy(currentPlaceableObject);
                     currentPlaceableObject = null;
                     Debug.Log("You are too broke");
+                }
+                else if(ThisItemRequiresSecondStory())
+                {
+                    if(BarStatsHandler.GetComponent<BarStatsHandler>().secondStory == true)
+                    {
+                        currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                    }
+                    else
+                    {
+                        Destroy(currentPlaceableObject);
+                        currentPlaceableObject = null;
+                        Debug.Log("Get a second story yo");
+                    }
                 }
                 else
                 {
@@ -92,6 +106,17 @@ public class GroundPlacementController : MonoBehaviour
     private bool CostTooMuch()
     {
         if(currentPlaceableObject.GetComponent<ItemProperties>().goldCost > BarStatsHandler.GetComponent<BarStatsHandler>().totalGold)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    private bool ThisItemRequiresSecondStory()
+    {
+        if(currentPlaceableObject.GetComponent<ItemProperties>().secondStoryRequired == true)
         {
             return true;
         }
