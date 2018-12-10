@@ -7,7 +7,7 @@ public class BarStatsHandler : MonoBehaviour {
 
 
     public int totalGold;
-    public int totalBarAttractiveness;
+    public float totalBarAttractiveness;
     public bool secondStory;
 
     [SerializeField]
@@ -18,9 +18,9 @@ public class BarStatsHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        totalGold = 50;
-        totalBarAttractiveness = 0;
-        secondStory = false;
+        totalGold = 250;
+        totalBarAttractiveness = 10;
+        secondStory = true;
 	}
 	
 	// Update is called once per frame
@@ -36,31 +36,31 @@ public class BarStatsHandler : MonoBehaviour {
         {
             barAttractivenessText.text = "Unkempt Hovel";
         }
-        if (totalBarAttractiveness >= 40)
+        if (totalBarAttractiveness >= 45)
         {
             barAttractivenessText.text = "Grubby Taproom";
         }
-        if (totalBarAttractiveness >= 60)
+        if (totalBarAttractiveness >= 80)
         {
             barAttractivenessText.text = "Tolerable Tavern";
         }
-        if (totalBarAttractiveness >= 80)
+        if (totalBarAttractiveness >= 110)
         {
             barAttractivenessText.text = "Noteworthy Ale House";
         }
-        if (totalBarAttractiveness >= 100)
+        if (totalBarAttractiveness >= 140)
         {
             barAttractivenessText.text = "Impressive Inn";
         }
-        if (totalBarAttractiveness >= 120)
+        if (totalBarAttractiveness >= 160)
         {
             barAttractivenessText.text = "Exemplary Establishment";
         }
-        if (totalBarAttractiveness >= 140)
+        if (totalBarAttractiveness >= 205)
         {
             barAttractivenessText.text = "Phenomenal Bistro";
         }
-        if (totalBarAttractiveness >= 160)
+        if (totalBarAttractiveness >= 250)
         {
             barAttractivenessText.text = "6 Star Bar";
         }

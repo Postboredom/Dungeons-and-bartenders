@@ -49,7 +49,7 @@ public class MenuHandler : MonoBehaviour {
     public void ObjectButtonPressed()
     {
         currentPlaceableObjectName = EventSystem.current.currentSelectedGameObject.name;
-        Debug.Log(currentPlaceableObjectName);
+       // Debug.Log(currentPlaceableObjectName);
         isObjectPlaced = false;
     }
 }

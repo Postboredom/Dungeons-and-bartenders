@@ -28,14 +28,14 @@ public class ButtonHover : MonoBehaviour {
 
     public void HoveringOverButton()
     {
-        Debug.Log("Hovering over "  + this.name);
+        //Debug.Log("Hovering over "  + this.name);
         itemInfoPanel.SetActive(true);
         for (int i = 0; i < numOfItems; i++)
         {
             if (this.name == groundPlacementController.GetComponent<GroundPlacementController>().placeableObjectPrefabs[i].GetComponent<ItemProperties>().itemName)
             {
                 currentHoveringObject = groundPlacementController.GetComponent<GroundPlacementController>().placeableObjectPrefabs[i];
-                Debug.Log(currentHoveringObject.GetComponent<ItemProperties>().itemName);
+                //Debug.Log(currentHoveringObject.GetComponent<ItemProperties>().itemName);
             }
         }
         if(currentHoveringObject != null)

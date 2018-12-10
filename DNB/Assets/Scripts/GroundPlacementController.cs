@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GroundPlacementController : MonoBehaviour
 {
-   
+
     public GameObject[] placeableObjectPrefabs; //array of objects that could be placed
 
     private GameObject currentPlaceableObject; //current object that the player is trying to place
@@ -13,44 +13,53 @@ public class GroundPlacementController : MonoBehaviour
 
     public bool editModeOn = false;
     public bool deleteModeOn = false;
+    private bool onPlaceableSurface = false;
 
     private float mouseWheelRotation;
 
+
+    private Material objectCurrentMaterialHolder;
+    [SerializeField]
+    private Material correctPlacementMaterial;
+    [SerializeField]
+    private Material incorrectPlacementMaterial;
+
     private void Update()
     {
-        if(currentPlaceableObject == null)
+        if (currentPlaceableObject == null)
         {
-            HandleNewObjectHotkey();
+            GetObjectToPlace();
         }
-        
+
 
         if (currentPlaceableObject != null) //if the player is trying to place an object
         {
-            StartCoroutine (MoveCurrentObjectToMouse());
-            StartCoroutine (RotateFromMouseWheel());
-            StartCoroutine (ReleaseIfClicked());
+            StartCoroutine(MoveCurrentObjectToMouse());
+            StartCoroutine(RotateFromMouseWheel());
+            StartCoroutine(ReleaseIfClicked());
         }
     }
 
     //this function handles the changing of the current placeable object
-    private void HandleNewObjectHotkey()
+    private void GetObjectToPlace()
     {
-        for(int i = 0; i < placeableObjectPrefabs.Length; i++)
+        for (int i = 0; i < placeableObjectPrefabs.Length; i++)
         {
-            if(placeableObjectPrefabs[i].name == currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName && !currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced)
+            if (placeableObjectPrefabs[i].name == currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName && !currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced)
             {
                 Debug.Log("I'd like to spawn a " + currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().currentPlaceableObjectName);
                 currentPlaceableObject = Instantiate(placeableObjectPrefabs[i]);
-                if(CostTooMuch())
+                if (CostTooMuch())
                 {
                     Destroy(currentPlaceableObject);
                     currentPlaceableObject = null;
                     Debug.Log("You are too broke");
                 }
-                else if(ThisItemRequiresSecondStory())
+                else if (ThisItemRequiresSecondStory())
                 {
-                    if(BarStatsHandler.GetComponent<BarStatsHandler>().secondStory == true)
+                    if (BarStatsHandler.GetComponent<BarStatsHandler>().secondStory == true)
                     {
+                        objectCurrentMaterialHolder = currentPlaceableObject.GetComponent<Renderer>().material;
                         currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
                     }
                     else
@@ -62,20 +71,21 @@ public class GroundPlacementController : MonoBehaviour
                 }
                 else
                 {
+                    objectCurrentMaterialHolder = currentPlaceableObject.GetComponent<Renderer>().material;
                     currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
                 }
-               
+
             }
-           
+
         }
-        if(Input.GetMouseButtonDown(0) && editModeOn)
+        if (Input.GetMouseButtonDown(0) && editModeOn)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
             RaycastHit hitInfo;
-            if(Physics.Raycast(ray, out hitInfo))
+            if (Physics.Raycast(ray, out hitInfo))
             {
-                if(deleteModeOn)
+                if (deleteModeOn)
                 {
                     currentPlaceableObject = hitInfo.transform.gameObject;
                     currentPlaceableObject.layer = 2;
@@ -84,9 +94,17 @@ public class GroundPlacementController : MonoBehaviour
                 }
                 else
                 {
-                    currentPlaceableObject = hitInfo.transform.gameObject;
-                    currentPlaceableObject.layer = 2;
-                    currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                    if (CanEditItem(hitInfo.transform.gameObject.tag) == false)
+                    {
+                        Debug.Log("Item Can't be Edited");
+                    }
+                    else
+                    {
+                        currentPlaceableObject = hitInfo.transform.gameObject;
+                        currentPlaceableObject.layer = 2;
+                        currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                    }
+
                 }
             }
         }
@@ -95,7 +113,7 @@ public class GroundPlacementController : MonoBehaviour
     public void EditMode()
     {
         editModeOn = !editModeOn;
-        
+
     }
 
     public void DeleteMode()
@@ -105,7 +123,7 @@ public class GroundPlacementController : MonoBehaviour
 
     private bool CostTooMuch()
     {
-        if(currentPlaceableObject.GetComponent<ItemProperties>().goldCost > BarStatsHandler.GetComponent<BarStatsHandler>().totalGold)
+        if (currentPlaceableObject.GetComponent<ItemProperties>().goldCost > BarStatsHandler.GetComponent<BarStatsHandler>().totalGold)
         {
             return true;
         }
@@ -116,13 +134,26 @@ public class GroundPlacementController : MonoBehaviour
     }
     private bool ThisItemRequiresSecondStory()
     {
-        if(currentPlaceableObject.GetComponent<ItemProperties>().secondStoryRequired == true)
+        if (currentPlaceableObject.GetComponent<ItemProperties>().secondStoryRequired == true)
         {
             return true;
         }
         else
         {
             return false;
+        }
+    }
+
+    public bool CanEditItem (string objectTag)
+    {
+        if(objectTag != "Floor Object" && objectTag != "Wall Object" && objectTag != "Ceiling Object")
+        {
+            Debug.Log(objectTag);
+            return false;
+        }
+        else
+        {
+            return true;
         }
     }
 
@@ -137,6 +168,34 @@ public class GroundPlacementController : MonoBehaviour
         {
             currentPlaceableObject.transform.position = hitInfo.point;
             currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
+            //Debug.Log(hitInfo.transform.gameObject.tag);
+            if(hitInfo.transform.gameObject.tag == "Floor" && currentPlaceableObject.tag == "Floor Object")
+            {
+                Debug.Log("I can place a floor object here");
+                onPlaceableSurface = true;
+                currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+            }
+            else if (hitInfo.transform.gameObject.tag == "Ceiling" && currentPlaceableObject.tag == "Ceiling Object")
+            {
+                Debug.Log("I can place a ceiling object here");
+                onPlaceableSurface = true;
+                currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+
+            }
+            else if (hitInfo.transform.gameObject.tag == "Wall" && currentPlaceableObject.tag == "Wall Object")
+            {
+                Debug.Log("I can place a wall object here");
+                onPlaceableSurface = true;
+                currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+                currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
+                currentPlaceableObject.transform.rotation = Quaternion.LookRotation(hitInfo.point, Vector3.up);
+            }
+            else
+            {
+                Debug.Log("I can't place this object here");
+                onPlaceableSurface = false;
+                currentPlaceableObject.GetComponent<Renderer>().material = incorrectPlacementMaterial;
+            }
         }
     }
 
@@ -144,7 +203,7 @@ public class GroundPlacementController : MonoBehaviour
     IEnumerator RotateFromMouseWheel()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log(Input.mouseScrollDelta);
+        //Debug.Log(Input.mouseScrollDelta);
         mouseWheelRotation += Input.mouseScrollDelta.y;
         currentPlaceableObject.transform.Rotate(Vector3.up, mouseWheelRotation * 10f);
     }
@@ -153,21 +212,23 @@ public class GroundPlacementController : MonoBehaviour
     IEnumerator ReleaseIfClicked()
     {
         yield return new WaitForSeconds(1);
-        if (Input.GetMouseButtonDown(0) && BarStatsHandler.GetComponent<BarStatsHandler>().totalGold >= currentPlaceableObject.GetComponent<ItemProperties>().goldCost)
+        if (Input.GetMouseButtonDown(0) && BarStatsHandler.GetComponent<BarStatsHandler>().totalGold >= currentPlaceableObject.GetComponent<ItemProperties>().goldCost && onPlaceableSurface == true)
         {
-            BarStatsHandler.GetComponent<BarStatsHandler>().totalGold -= currentPlaceableObject.GetComponent<ItemProperties>().goldCost;
-            BarStatsHandler.GetComponent<BarStatsHandler>().totalBarAttractiveness += currentPlaceableObject.GetComponent<ItemProperties>().barAttraction;
+            if(editModeOn == false)
+            {
+                BarStatsHandler.GetComponent<BarStatsHandler>().totalGold -= currentPlaceableObject.GetComponent<ItemProperties>().goldCost;
+                BarStatsHandler.GetComponent<BarStatsHandler>().totalBarAttractiveness += currentPlaceableObject.GetComponent<ItemProperties>().barAttraction;
+            }
             currentPlaceableObject.layer = 0;
+            currentPlaceableObject.GetComponent<Renderer>().material = objectCurrentMaterialHolder;
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
-            Debug.Log(BarStatsHandler.GetComponent<BarStatsHandler>().totalGold);
+           
+            //Debug.Log(BarStatsHandler.GetComponent<BarStatsHandler>().totalGold);
             editModeOn = false;
         }
-        else
-        {
-            Debug.Log("You broke bitch");
-        }
+       
              
     }
 }

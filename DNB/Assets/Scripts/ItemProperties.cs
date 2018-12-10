@@ -6,7 +6,7 @@ public class ItemProperties : MonoBehaviour
 {
 
     public int goldCost;
-    public int barAttraction;
+    public float barAttraction;
     public int refund;
     public string itemDescription;
     public Sprite itemIcon;
