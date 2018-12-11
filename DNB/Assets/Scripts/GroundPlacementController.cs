@@ -13,7 +13,7 @@ public class GroundPlacementController : MonoBehaviour
 
     public bool editModeOn = false;
     public bool deleteModeOn = false;
-    private bool onPlaceableSurface = false;
+    public bool onPlaceableSurface = false;
 
     private float mouseWheelRotation;
 
@@ -73,6 +73,7 @@ public class GroundPlacementController : MonoBehaviour
                 {
                     objectCurrentMaterialHolder = currentPlaceableObject.GetComponent<Renderer>().material;
                     currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+                  
                 }
 
             }
@@ -174,6 +175,7 @@ public class GroundPlacementController : MonoBehaviour
                 Debug.Log("I can place a floor object here");
                 onPlaceableSurface = true;
                 currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+                
             }
             else if (hitInfo.transform.gameObject.tag == "Ceiling" && currentPlaceableObject.tag == "Ceiling Object")
             {
@@ -188,7 +190,7 @@ public class GroundPlacementController : MonoBehaviour
                 onPlaceableSurface = true;
                 currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
                 currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward, hitInfo.normal);
-                currentPlaceableObject.transform.rotation = Quaternion.LookRotation(hitInfo.point, Vector3.up);
+                //currentPlaceableObject.transform.rotation = Quaternion.LookRotation(hitInfo.point, Vector3.up);
             }
             else
             {
@@ -198,6 +200,7 @@ public class GroundPlacementController : MonoBehaviour
             }
         }
     }
+    
 
     //this function allows the player to rotate objects using the mouse wheel
     IEnumerator RotateFromMouseWheel()

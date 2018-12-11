@@ -12,5 +12,5 @@ public class ItemProperties : MonoBehaviour
     public Sprite itemIcon;
     public string itemName;
     public bool secondStoryRequired;
-
+    
 }
