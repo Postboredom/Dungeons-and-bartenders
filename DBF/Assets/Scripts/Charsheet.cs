@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Charsheet : MonoBehaviour {
-    private double luck;
-    private double strength;
-    private double dex;
-    private double speed;
+    public double luck;
+    public double strength;
+    public double dex;
+    public double speed;
 
     private void Start()
     {
         luck = GetComponent<GenerateCharSheet>().CreateLuck();
-        strength = GetComponent<GenerateCharSheet>().CreateStrenght(); ;
+        strength = GetComponent<GenerateCharSheet>().CreateStrenght(); 
         dex = GetComponent<GenerateCharSheet>().CreateDex();
         speed = GetComponent<GenerateCharSheet>().CreateSpeed();
     }
