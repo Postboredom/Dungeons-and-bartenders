@@ -19,7 +19,6 @@ public class NpcSpawn : MonoBehaviour
     private void Awake()
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray();
-        Debug.Log(chars.Length);
         tempmat = new List<Material>();
     }
 
