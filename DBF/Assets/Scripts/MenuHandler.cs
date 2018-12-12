@@ -16,6 +16,7 @@ public class MenuHandler : MonoBehaviour {
     void Update()
     {
         MenuToggler();
+        
     }
 
     void MenuToggler()
@@ -32,26 +33,26 @@ public class MenuHandler : MonoBehaviour {
             }
          
         }
+       
     }
     public void MenuToggleOn()
     {
         visibleUI = true;
-      
-      
-        
         areaDecoratorUI.SetActive(true);
         playerObject.GetComponent<FirstPersonController>().enabled = false;
         playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor = false;
         Cursor.lockState = CursorLockMode.None;
-        //Cursor.lockState = CursorLockMode.Confined;
+       // Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        Debug.Log(Cursor.visible);
-        Debug.Log(playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor);
+      
+       // Debug.Log(Cursor.visible);
+       // Debug.Log(playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor);
     }
     public void MenuToggleOff()
     {
         playerObject.GetComponent<FirstPersonController>().enabled = true;
-        //playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor = true;
+        playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor = true;
+        Cursor.lockState = CursorLockMode.Locked;
         areaDecoratorUI.SetActive(false);
         Cursor.visible = false;
         visibleUI = false;

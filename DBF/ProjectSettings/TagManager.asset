@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
+  - Wall Object
+  - Floor Object
+  - Ceiling Object
+  - Ceiling
+  - Wall
+  - Floor
   layers:
   - Default
   - TransparentFX
