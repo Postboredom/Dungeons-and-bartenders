@@ -18,7 +18,7 @@ public class BarStatsHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        totalGold = 250;
+        totalGold = 500;
         totalBarAttractiveness = 10;
         secondStory = false;
 	}

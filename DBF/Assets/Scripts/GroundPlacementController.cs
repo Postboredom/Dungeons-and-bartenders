@@ -23,6 +23,8 @@ public class GroundPlacementController : MonoBehaviour
     private Material correctPlacementMaterial;
     [SerializeField]
     private Material incorrectPlacementMaterial;
+    [SerializeField]
+    private GameObject secondStoryCeiling;
 
     private void Update()
     {
@@ -177,11 +179,27 @@ public class GroundPlacementController : MonoBehaviour
                 currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
                 
             }
+            else if (hitInfo.transform.gameObject.tag == "Floor" && currentPlaceableObject.tag == "Table")
+            {
+                Debug.Log("I can place a floor object here");
+                onPlaceableSurface = true;
+                currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+
+            }
+            else if (hitInfo.transform.gameObject.tag == "Table" && currentPlaceableObject.tag == "Table Object")
+            {
+                Debug.Log("I can place a floor object here");
+                onPlaceableSurface = true;
+                currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+
+            }
             else if (hitInfo.transform.gameObject.tag == "Ceiling" && currentPlaceableObject.tag == "Ceiling Object")
             {
                 Debug.Log("I can place a ceiling object here");
                 onPlaceableSurface = true;
                 currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
+                currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.down, (hitInfo.normal));
+                
 
             }
             else if (hitInfo.transform.gameObject.tag == "Wall" && currentPlaceableObject.tag == "Wall Object")
@@ -219,7 +237,7 @@ public class GroundPlacementController : MonoBehaviour
     IEnumerator ReleaseIfClicked()
     {
         yield return new WaitForSeconds(1);
-        if (Input.GetMouseButtonDown(0) && BarStatsHandler.GetComponent<BarStatsHandler>().totalGold >= currentPlaceableObject.GetComponent<ItemProperties>().goldCost && onPlaceableSurface == true)
+        if (Input.GetMouseButtonDown(0) && onPlaceableSurface == true)
         {
             if(editModeOn == false)
             {
@@ -228,6 +246,14 @@ public class GroundPlacementController : MonoBehaviour
             }
             currentPlaceableObject.layer = 0;
             currentPlaceableObject.GetComponent<Renderer>().material = objectCurrentMaterialHolder;
+            if(currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Second Story")
+            {
+                Vector3 ceilingPosition = secondStoryCeiling.transform.position;
+                ceilingPosition.y += 5;
+                BarStatsHandler.GetComponent<BarStatsHandler>().secondStory = true;
+                secondStoryCeiling.transform.position = ceilingPosition;
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+            }
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();

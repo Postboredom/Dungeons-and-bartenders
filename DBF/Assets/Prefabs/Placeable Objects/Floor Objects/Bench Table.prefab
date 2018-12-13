@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 208249568636677574}
   m_Layer: 2
   m_Name: Bench Table
-  m_TagString: Floor Object
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 9

@@ -11,6 +11,10 @@ TagManager:
   - Ceiling
   - Wall
   - Floor
+  - Table
+  - Table Object
+  - Second Story Exit
+  - Second Story Exit 1
   layers:
   - Default
   - TransparentFX

@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114574167452268066}
   m_Layer: 2
   m_Name: Barrel Table
-  m_TagString: Floor Object
+  m_TagString: Table
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 9
