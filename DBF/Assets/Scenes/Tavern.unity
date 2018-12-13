@@ -2946,6 +2946,59 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bd95b60dab61cde4baef0eb574fea6d4, type: 3}
+--- !u!1 &512364167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1399892811947702, guid: 60fb485537029034badff7d25c0c55af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1826814505}
+--- !u!4 &512364168 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4130156981929600, guid: 60fb485537029034badff7d25c0c55af,
+    type: 2}
+  m_PrefabInternal: {fileID: 1826814505}
+--- !u!135 &512364169
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512364167}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8727753
+  m_Center: {x: 0, y: 1.8727753, z: 0}
+--- !u!114 &512364170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512364167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769bff763ceb9b49b4297172e595fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCost: 0
+  barAttraction: 0
+  refund: 0
+  itemDescription: 
+  itemIcon: {fileID: 0}
+  itemName: 
+  secondStoryRequired: 0
+--- !u!114 &512364171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 512364167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c9c3dc6f61a79499c3058f5c2082be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1537735276}
+  destination: {fileID: 0}
 --- !u!1001 &521727117
 Prefab:
   m_ObjectHideFlags: 0
@@ -2994,7 +3047,8 @@ Prefab:
       propertyPath: m_Name
       value: Door from Enchanting Room
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114729276074275794, guid: 7ac67748f82fcd44baa7e7c27bafc3a1, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 7ac67748f82fcd44baa7e7c27bafc3a1, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &528787441
@@ -3876,7 +3930,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4070149064301516, guid: 5e8d48952d93b704ca51fa8df125a1da, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 48.762196
+      value: 35.61
       objectReference: {fileID: 0}
     - target: {fileID: 4070149064301516, guid: 5e8d48952d93b704ca51fa8df125a1da, type: 2}
       propertyPath: m_LocalPosition.y
@@ -3911,14 +3965,9 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1537735276}
-    - target: {fileID: 114401989151173796, guid: 5e8d48952d93b704ca51fa8df125a1da,
-        type: 2}
-      propertyPath: destination
-      value: 
-      objectReference: {fileID: 1767855737}
     - target: {fileID: 1409933568616048, guid: 5e8d48952d93b704ca51fa8df125a1da, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Name
+      value: Kitchen Room
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e8d48952d93b704ca51fa8df125a1da, type: 2}
@@ -5844,6 +5893,59 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1245788521}
   m_Mesh: {fileID: 4300002, guid: b573d3c00be4bbc48b309b2e5deba2a5, type: 3}
+--- !u!1 &1279501252 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1140003751561038, guid: a72a1ff357c3d5645a557907585998cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1881849394}
+--- !u!4 &1279501253 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4437689476763564, guid: a72a1ff357c3d5645a557907585998cb,
+    type: 2}
+  m_PrefabInternal: {fileID: 1881849394}
+--- !u!135 &1279501254
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279501252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8727753
+  m_Center: {x: 0, y: 1.8727753, z: 0}
+--- !u!114 &1279501255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279501252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769bff763ceb9b49b4297172e595fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCost: 0
+  barAttraction: 0
+  refund: 0
+  itemDescription: 
+  itemIcon: {fileID: 0}
+  itemName: 
+  secondStoryRequired: 0
+--- !u!114 &1279501256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1279501252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c9c3dc6f61a79499c3058f5c2082be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1537735276}
+  destination: {fileID: 0}
 --- !u!1 &1290731860
 GameObject:
   m_ObjectHideFlags: 0
@@ -6018,6 +6120,34 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 71a52d69e3cb94147a28f1080a5e1f0f, type: 3}
+--- !u!1 &1320824629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1320824630}
+  m_Layer: 0
+  m_Name: Bedroom Entrance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1320824630
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320824629}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.576, y: 1.398, z: -3.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 512364168}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1325029586
 GameObject:
   m_ObjectHideFlags: 0
@@ -7224,6 +7354,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1527444340}
   m_Mesh: {fileID: 4300000, guid: 9828951528ee8bd4883766df2a856167, type: 3}
+--- !u!1 &1533561499
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1533561500}
+  m_Layer: 0
+  m_Name: Meeting Room Entrance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1533561500
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1533561499}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -4.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1279501253}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1537735276 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0,
@@ -8301,11 +8459,6 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9828951528ee8bd4883766df2a856167, type: 3}
---- !u!1 &1767855737 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1209797419388700, guid: 60fb485537029034badff7d25c0c55af,
-    type: 2}
-  m_PrefabInternal: {fileID: 1826814505}
 --- !u!1 &1800511821
 GameObject:
   m_ObjectHideFlags: 0
@@ -8433,8 +8586,12 @@ Prefab:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1949375998374242, guid: 60fb485537029034badff7d25c0c55af, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Name
+      value: Double Bedroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 1399892811947702, guid: 60fb485537029034badff7d25c0c55af, type: 2}
+      propertyPath: m_TagString
+      value: Bedroom Exit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60fb485537029034badff7d25c0c55af, type: 2}
@@ -9637,6 +9794,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1140003751561038, guid: a72a1ff357c3d5645a557907585998cb, type: 2}
+      propertyPath: m_TagString
+      value: Meeting Room Exit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a72a1ff357c3d5645a557907585998cb, type: 2}
   m_IsPrefabAsset: 0
@@ -10337,6 +10498,42 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 3093387b35003ea45aa9bb87432d94d9, type: 3}
+--- !u!1 &2006144927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1368444906582254, guid: 7ac67748f82fcd44baa7e7c27bafc3a1,
+    type: 2}
+  m_PrefabInternal: {fileID: 521727117}
+--- !u!114 &2006144929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2006144927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c9c3dc6f61a79499c3058f5c2082be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1537735276}
+  destination: {fileID: 0}
+--- !u!114 &2006144933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2006144927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769bff763ceb9b49b4297172e595fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCost: 0
+  barAttraction: 0
+  refund: 0
+  itemDescription: 
+  itemIcon: {fileID: 0}
+  itemName: 
+  secondStoryRequired: 0
 --- !u!1 &2018369420
 GameObject:
   m_ObjectHideFlags: 0
@@ -10406,6 +10603,29 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &2022646948 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1945354174588216, guid: 5e8d48952d93b704ca51fa8df125a1da,
+    type: 2}
+  m_PrefabInternal: {fileID: 714138113}
+--- !u!114 &2022646954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2022646948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6769bff763ceb9b49b4297172e595fbe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goldCost: 0
+  barAttraction: 0
+  refund: 0
+  itemDescription: 
+  itemIcon: {fileID: 0}
+  itemName: 
+  secondStoryRequired: 0
 --- !u!1001 &2027914516
 Prefab:
   m_ObjectHideFlags: 0

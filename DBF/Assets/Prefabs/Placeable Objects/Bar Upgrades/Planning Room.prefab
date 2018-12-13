@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4950217765773118}
   - component: {fileID: 33172153909147010}
   - component: {fileID: 23814950938962466}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Env_Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,13 +40,43 @@ GameObject:
   - component: {fileID: 23566071855094924}
   - component: {fileID: 64587113484289680}
   - component: {fileID: 114950350532899106}
-  m_Layer: 0
+  - component: {fileID: 114902098231601132}
+  - component: {fileID: 135243728423772698}
+  m_Layer: 2
   m_Name: Planning Room
   m_TagString: Wall Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 9
   m_IsActive: 1
+--- !u!1 &1294489558009652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4371563243620296}
+  m_Layer: 2
+  m_Name: Meeting Room Exit 1
+  m_TagString: Meeting Room Exit 1
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4371563243620296
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294489558009652}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.06, y: 0, z: 2.79}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4389645426260536}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4389645426260536
 Transform:
   m_ObjectHideFlags: 1
@@ -54,10 +84,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1143321993315826}
   m_LocalRotation: {x: 0, y: -0.707106, z: 0, w: 0.7071076}
-  m_LocalPosition: {x: -10, y: 5, z: -2.5}
+  m_LocalPosition: {x: 56.184536, y: 159.50414, z: 167.62657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4950217765773118}
+  - {fileID: 4371563243620296}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -172,6 +203,19 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b2bb207d9715bbb4d90e83d0885b7377, type: 3}
+--- !u!114 &114902098231601132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143321993315826}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6c9c3dc6f61a79499c3058f5c2082be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  destination: {fileID: 0}
 --- !u!114 &114950350532899106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,3 +235,15 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: f7431b61d73f0f24d9b458ba2d79bdff, type: 3}
   itemName: Planning Room
   secondStoryRequired: 1
+--- !u!135 &135243728423772698
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1143321993315826}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.8727753
+  m_Center: {x: 0, y: 1.8727753, z: 0}

@@ -18,6 +18,12 @@ TagManager:
   - Enchanting Room Exit
   - Enchanting Room Exit 1
   - Yo idiot you are the enchanting room exit
+  - Meeting Room Exit
+  - Meeting Room Exit 1
+  - Kitchen Room Exit
+  - Kitchen Room Exit 1
+  - Bedroom Exit
+  - Bedroom Exit 1
   layers:
   - Default
   - TransparentFX

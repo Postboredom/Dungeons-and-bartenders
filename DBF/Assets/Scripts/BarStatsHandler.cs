@@ -20,7 +20,7 @@ public class BarStatsHandler : MonoBehaviour {
 
         totalGold = 1500;
         totalBarAttractiveness = 10;
-        secondStory = true;
+        secondStory = false;
 	}
 	
 	// Update is called once per frame

@@ -256,7 +256,21 @@ public class GroundPlacementController : MonoBehaviour
             }
             if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Enchanting Room")
             {
-                Debug.Log("Enchanting room functioning");
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+            }
+            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Planning Room")
+            {
+               
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+            }
+            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Kitchen")
+            {
+
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+            }
+            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Bedroom")
+            {
+
                 currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
             }
             currentPlaceableObject = null;

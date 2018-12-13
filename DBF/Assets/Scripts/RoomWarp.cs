@@ -9,7 +9,7 @@ public class RoomWarp : MonoBehaviour {
 
     void Update()
     {
-        Debug.Log("literally are you running??");
+        
         Debug.Log(this.tag + this.name);
         //going too and from second story
         if (this.tag == "Second Story Exit" )
@@ -22,18 +22,55 @@ public class RoomWarp : MonoBehaviour {
             player = GameObject.FindGameObjectWithTag("Player");
         }
         //going between tavern and enchanting room
-        else if(this.tag == "Enchanting Room Exit")
+        else if (this.GetComponent<ItemProperties>().itemName == "Enchanting Room")
         {
-            //Debug.Log("yo do this k thanks");
+            destination = GameObject.Find("Enchanting Room Entrance");
+           player = GameObject.FindGameObjectWithTag("Player");
+        }
+        else if(this.tag == "Enchanting Room Exit" ) //this line doesn't work and I don't know why
+        {
+            Debug.Log("yo this worked");
+            Debug.Log(this.tag);
             destination = GameObject.FindGameObjectWithTag("Enchanting Room Exit 1");
             
         }
-        else if(this.GetComponent<ItemProperties>().itemName == "Enchanting Room")
+        else if (this.GetComponent<ItemProperties>().itemName == "Planning Room")
         {
-            destination = GameObject.Find("Enchanting Room Entrance");
+            destination = GameObject.Find("Meeting Room Entrance");
             player = GameObject.FindGameObjectWithTag("Player");
         }
-        
+        else if (this.tag == "Meeting Room Exit") //this line doesn't work and I don't know why
+        {
+            Debug.Log("yo this worked");
+            Debug.Log(this.tag);
+            destination = GameObject.FindGameObjectWithTag("Meeting Room Exit 1");
+
+        }
+        else if (this.GetComponent<ItemProperties>().itemName == "Kitchen")
+        {
+            destination = GameObject.Find("Kitchen Room Entrance");
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        else if (this.tag == "Kitchen Room Exit") //this line doesn't work and I don't know why
+        {
+            Debug.Log("yo this worked");
+            Debug.Log(this.tag);
+            destination = GameObject.FindGameObjectWithTag("Kitchen Room Exit 1");
+
+        }
+        else if (this.GetComponent<ItemProperties>().itemName == "Bedroom")
+        {
+            destination = GameObject.Find("Bedroom Entrance");
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
+        else if (this.tag == "Bedroom Exit") //this line doesn't work and I don't know why
+        {
+            Debug.Log("yo this worked");
+            Debug.Log(this.tag);
+            destination = GameObject.FindGameObjectWithTag("Bedroom Exit 1");
+
+        }
+
     }
 
 	void OnTriggerEnter()
