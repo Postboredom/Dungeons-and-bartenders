@@ -15,6 +15,9 @@ TagManager:
   - Table Object
   - Second Story Exit
   - Second Story Exit 1
+  - Enchanting Room Exit
+  - Enchanting Room Exit 1
+  - Yo idiot you are the enchanting room exit
   layers:
   - Default
   - TransparentFX

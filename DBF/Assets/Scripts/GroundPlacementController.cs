@@ -254,6 +254,11 @@ public class GroundPlacementController : MonoBehaviour
                 secondStoryCeiling.transform.position = ceilingPosition;
                 currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
             }
+            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Enchanting Room")
+            {
+                Debug.Log("Enchanting room functioning");
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+            }
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();

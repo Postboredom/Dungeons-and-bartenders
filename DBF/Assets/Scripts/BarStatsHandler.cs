@@ -18,9 +18,9 @@ public class BarStatsHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        totalGold = 500;
+        totalGold = 1500;
         totalBarAttractiveness = 10;
-        secondStory = false;
+        secondStory = true;
 	}
 	
 	// Update is called once per frame

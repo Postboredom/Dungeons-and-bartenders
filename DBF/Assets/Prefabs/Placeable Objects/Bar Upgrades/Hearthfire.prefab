@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33346994907389348}
   - component: {fileID: 23752985567033532}
   - component: {fileID: 64896014751419722}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Prop_Fireplace_Flame_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 23098116851784980}
   - component: {fileID: 64888548962928780}
   - component: {fileID: 114608918678398970}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hearthfire
   m_TagString: Wall Object
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4789793924322144}
   - component: {fileID: 108465081679383798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 33381787411781826}
   - component: {fileID: 23013712229231708}
   - component: {fileID: 64978182758572648}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: SM_Prop_Fireplace_Chimney_01 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
