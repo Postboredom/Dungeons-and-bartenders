@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64753893917981008}
   - component: {fileID: 208825724769984102}
   - component: {fileID: 114574167452268066}
+  - component: {fileID: 114129841956819306}
   m_Layer: 2
   m_Name: Barrel Table
   m_TagString: Table
@@ -100,6 +101,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: af7bc6866dd947544a7016bd16246d1e, type: 3}
+--- !u!114 &114129841956819306
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1434835563738262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114574167452268066
 MonoBehaviour:
   m_ObjectHideFlags: 1

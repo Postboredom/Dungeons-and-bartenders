@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 64048979324369440}
   - component: {fileID: 208017374145708376}
   - component: {fileID: 114625408781562296}
+  - component: {fileID: 114138215200414872}
   m_Layer: 2
   m_Name: Chest
   m_TagString: Floor Object
@@ -173,6 +174,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: b6e51c986e417ab40be1f174c90a53ec, type: 3}
+--- !u!114 &114138215200414872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1470777611468052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114625408781562296
 MonoBehaviour:
   m_ObjectHideFlags: 1

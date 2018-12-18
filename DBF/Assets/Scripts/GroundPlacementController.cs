@@ -38,6 +38,7 @@ public class GroundPlacementController : MonoBehaviour
         {
             StartCoroutine(MoveCurrentObjectToMouse());
             StartCoroutine(RotateFromMouseWheel());
+            StartCoroutine(CancelIfClicked());
             StartCoroutine(ReleaseIfClicked());
         }
     }
@@ -105,6 +106,7 @@ public class GroundPlacementController : MonoBehaviour
                     {
                         currentPlaceableObject = hitInfo.transform.gameObject;
                         currentPlaceableObject.layer = 2;
+                        objectCurrentMaterialHolder = currentPlaceableObject.GetComponent<Renderer>().material;
                         currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
                     }
 
@@ -149,7 +151,7 @@ public class GroundPlacementController : MonoBehaviour
 
     public bool CanEditItem (string objectTag)
     {
-        if(objectTag != "Floor Object" && objectTag != "Wall Object" && objectTag != "Ceiling Object")
+        if(objectTag != "Floor Object" && objectTag != "Wall Object" && objectTag != "Ceiling Object" && objectTag !="Table" && objectTag != "Table Object")
         {
             Debug.Log(objectTag);
             return false;
@@ -236,6 +238,18 @@ public class GroundPlacementController : MonoBehaviour
         currentPlaceableObject.transform.Rotate(Vector3.up, mouseWheelRotation * 10f);
     }
 
+    IEnumerator CancelIfClicked()
+    {
+        yield return new WaitForSeconds(1);
+        if(Input.GetMouseButtonDown(1))
+        {
+            Destroy(currentPlaceableObject);
+            currentPlaceableObject = null;
+            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
+            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+        }
+    }
+
     //this function handles placing the object when the player clicks
     IEnumerator ReleaseIfClicked()
     {
@@ -279,9 +293,16 @@ public class GroundPlacementController : MonoBehaviour
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
-           
-            //Debug.Log(BarStatsHandler.GetComponent<BarStatsHandler>().totalGold);
-            editModeOn = false;
+            
+            if(editModeOn == true)
+            {
+                //if true stay true
+            }
+            else
+            {
+                editModeOn = false;
+            }
+            
         }
        
              

@@ -24,7 +24,8 @@ GameObject:
   - component: {fileID: 64688004802368932}
   - component: {fileID: 114254727776906298}
   - component: {fileID: 208249568636677574}
-  m_Layer: 2
+  - component: {fileID: 114602721953156566}
+  m_Layer: 0
   m_Name: Bench Table
   m_TagString: Table
   m_Icon: {fileID: 0}
@@ -37,8 +38,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1536566487745462}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 57.4279, y: 159.4797, z: 171.73366}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -18.685143, y: 0, z: 1.9070129}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -118,6 +119,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: e3dca44a277fe974b850f915360cbb12, type: 3}
   itemName: Bench Table
   secondStoryRequired: 0
+--- !u!114 &114602721953156566
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1536566487745462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208249568636677574
 NavMeshObstacle:
   m_ObjectHideFlags: 1

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23948298393485110}
   - component: {fileID: 64379063965844376}
   - component: {fileID: 114738262215827220}
+  - component: {fileID: 114869314872669870}
   m_Layer: 2
   m_Name: Painting 2
   m_TagString: Wall Object
@@ -117,3 +118,15 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: c43bc280c9c5d564da1869e7941594c0, type: 3}
   itemName: Painting 2
   secondStoryRequired: 0
+--- !u!114 &114869314872669870
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1208415503488394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23061220999444136}
   - component: {fileID: 64061692290643606}
   - component: {fileID: 114454537987219312}
+  - component: {fileID: 114382598182037282}
   m_Layer: 2
   m_Name: Green Banner
   m_TagString: Wall Object
@@ -99,6 +100,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 14c16a0e690a12546a6d242d931fe2b5, type: 3}
+--- !u!114 &114382598182037282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1679549548898368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114454537987219312
 MonoBehaviour:
   m_ObjectHideFlags: 1

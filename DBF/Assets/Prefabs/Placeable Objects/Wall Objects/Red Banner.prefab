@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23982781981272284}
   - component: {fileID: 64015242969843328}
   - component: {fileID: 114439626387287102}
+  - component: {fileID: 114125571434947260}
   m_Layer: 2
   m_Name: Red Banner
   m_TagString: Wall Object
@@ -99,6 +100,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c9871dca9433ee34d941e878b8375b90, type: 3}
+--- !u!114 &114125571434947260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1321614236543782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114439626387287102
 MonoBehaviour:
   m_ObjectHideFlags: 1
