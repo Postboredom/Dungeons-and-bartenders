@@ -208,11 +208,14 @@ public class GroundPlacementController : MonoBehaviour
                 onPlaceableSurface = true;
                 currentPlaceableObject.GetComponent<Renderer>().material = correctPlacementMaterial;
                 currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward, (hitInfo.normal));
-                //if (hitInfo.normal.z == -1)
-               // {
-                //    currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward, -1*(hitInfo.normal));
-              //  }
-                //currentPlaceableObject.transform.rotation = Quaternion.LookRotation(hitInfo.point, Vector3.up);
+                if (hitInfo.normal.z == -1)
+                {
+                    Vector3 newdir = new Vector3(0,-1,-1);
+                    currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.forward,Vector3.up*0);
+                    currentPlaceableObject.transform.Rotate(Vector3.up, 180);
+
+                }
+                // currentPlaceableObject.transform.rotation = Quaternion.LookRotation(hitInfo.point, Vector3.up);
             }
             else
             {

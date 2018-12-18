@@ -91,7 +91,7 @@ MonoBehaviour:
   - {fileID: 1864489065359580, guid: bbe03179f67bcdc4887d7d9ba11510b5, type: 2}
   - {fileID: 1111272329313592, guid: 44c91afde66be1347ad87f4ff8771525, type: 2}
   - {fileID: 1867457249933038, guid: c9aa29b9139fd914eba442e5cc1551e3, type: 2}
-  - {fileID: 1243468785368454, guid: 529e23e905927734a8f3c6236ffae7d6, type: 2}
+  - {fileID: 1719760008906016, guid: f3a94727352a8744da69d8a8817c28b7, type: 2}
   - {fileID: 1271342830594740, guid: 4f1416dad610ce6468b16ebd5cdaa892, type: 2}
   - {fileID: 1186543066864562, guid: 30adceec271069f408162fc3dc913607, type: 2}
   - {fileID: 1143321993315826, guid: d2475d1767258e84581970f34b85afb3, type: 2}
@@ -99,6 +99,7 @@ MonoBehaviour:
   - {fileID: 1143321993315826, guid: 8020d4847a8dc4e4b8904a2b64a073f1, type: 2}
   - {fileID: 1143321993315826, guid: 9b9d26d21c56c674c9f412e4dd141616, type: 2}
   - {fileID: 1143321993315826, guid: b1d61c2eb32d9e64182467ee8d9d0bbe, type: 2}
+  - {fileID: 1225283736325138, guid: 4a412ddd09be1824480205f42d19eede, type: 2}
   currentPlaceableObjectNameHolder: {fileID: 0}
   BarStatsHandler: {fileID: 0}
   editModeOn: 0
@@ -108,3 +109,4 @@ MonoBehaviour:
     type: 2}
   incorrectPlacementMaterial: {fileID: 2100000, guid: 6bbf21e99c89ac14e928669ce0ade6b9,
     type: 2}
+  secondStoryCeiling: {fileID: 0}

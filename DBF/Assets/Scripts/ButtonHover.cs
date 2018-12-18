@@ -23,6 +23,7 @@ public class ButtonHover : MonoBehaviour {
 
     void Start()
     {
+        groundPlacementController = GameObject.Find("GroundPlacementController");
         numOfItems = groundPlacementController.GetComponent<GroundPlacementController>().placeableObjectPrefabs.Length;
     }
 

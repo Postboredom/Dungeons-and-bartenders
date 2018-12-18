@@ -12,6 +12,11 @@ public class MenuHandler : MonoBehaviour {
     public string currentPlaceableObjectName;
     public bool isObjectPlaced;
 
+    private void Awake()
+    {
+        currentPlaceableObjectName = "";
+    }
+
     // Update is called once per frame
     void Update()
     {

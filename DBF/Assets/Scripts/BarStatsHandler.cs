@@ -9,6 +9,8 @@ public class BarStatsHandler : MonoBehaviour {
     public int totalGold;
     public float totalBarAttractiveness;
     public bool secondStory;
+    private GameObject spawner;
+    private int spawns;
 
     [SerializeField]
     private Text goldAmountText;
@@ -17,7 +19,8 @@ public class BarStatsHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+        spawner = GameObject.FindGameObjectWithTag("GameController");
+        spawns = 0;
         totalGold = 1500;
         totalBarAttractiveness = 10;
         secondStory = false;

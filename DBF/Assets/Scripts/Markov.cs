@@ -81,7 +81,6 @@ public class Markov : MonoBehaviour {
                 nodes.data = temp;
                 int num;
                 num = note[note.Length - 1] - '0';
-                Debug.Log(num);
                 if(diaTree[num - 1] == null)
                 {
                     dialogue = new List<MarkovNodes<Dialouge_nodes>>();

@@ -7,35 +7,17 @@ using UnityStandardAssets.Characters.ThirdPerson;
 
 public class NpcSpawn : MonoBehaviour
 {
-    private static string Dflag;
-    public string type;
-    public GameObject[] chars;
-    public Transform spawnpoint;
-    public int amount;
-    public GameObject walk;
-    public Material[] material;
-    private List<Material> tempmat;
+    private static string Dflag;        //Dirty Flag Implimentation
+    public string type;                 //Choses the type of Npc to spawn in SpawnNpc
+    public static GameObject[] chars;          //All the Character Prefabs pulled from the Resource folder
+    public static Transform spawnpoint; //Current Spawnpoint for the Npc
+    public Material[] material;         //The Material the Prefab will use
+    private List<Material> tempmat;     //The list that will pull the materials and implement them
 
-    private void Awake()
+    private void Awake()                //initilazation
     {
-        chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray();
+        chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray(); //Get all Prefabs on awake
         tempmat = new List<Material>();
-    }
-
-    private void Update()
-    {
-        for(int ii = 0; ii < amount; ii++)
-        {
-            CreateRandNPC();
-            if(type != "")
-            {
-               // SpawnNPC(type);
-
-            }
-
-        }
-        type = "";
-        amount = 0;
     }
 
     public void CreateRandNPC()
@@ -60,7 +42,7 @@ public class NpcSpawn : MonoBehaviour
         Instantiate(newchar);
     }
 
-    void SpawnNPC(string type)
+    public void SpawnNPC(string type)
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.name.Contains(type)).ToArray();
         Debug.Log(chars.Length);

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4097206107849370}
   - component: {fileID: 33282462218176302}
   - component: {fileID: 23522034869451632}
-  - component: {fileID: 64434222916574862}
   - component: {fileID: 208439657754360516}
   - component: {fileID: 114959146983597258}
   m_Layer: 2
@@ -85,20 +84,6 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1702490724786814}
-  m_Mesh: {fileID: 4300000, guid: 1ef9b2b40d3c20c488ddcfe112c2d41d, type: 3}
---- !u!64 &64434222916574862
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1702490724786814}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 1ef9b2b40d3c20c488ddcfe112c2d41d, type: 3}
 --- !u!114 &114959146983597258
 MonoBehaviour:
