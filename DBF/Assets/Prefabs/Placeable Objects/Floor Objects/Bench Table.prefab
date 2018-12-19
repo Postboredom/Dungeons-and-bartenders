@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114254727776906298}
   - component: {fileID: 208249568636677574}
   - component: {fileID: 114602721953156566}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bench Table
   m_TagString: Table
   m_Icon: {fileID: 0}

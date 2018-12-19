@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GroundPlacementController : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class GroundPlacementController : MonoBehaviour
     private GameObject currentPlaceableObject; //current object that the player is trying to place
     public GameObject currentPlaceableObjectNameHolder;
     public GameObject BarStatsHandler;
+    public GameObject refundMenu;
+    public Text refundedGoldAmt;
 
     public bool editModeOn = false;
     public bool deleteModeOn = false;
@@ -36,10 +39,23 @@ public class GroundPlacementController : MonoBehaviour
 
         if (currentPlaceableObject != null) //if the player is trying to place an object
         {
-            StartCoroutine(MoveCurrentObjectToMouse());
-            StartCoroutine(RotateFromMouseWheel());
-            StartCoroutine(CancelIfClicked());
-            StartCoroutine(ReleaseIfClicked());
+            if (deleteModeOn == true)
+            {
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+            }
+            else
+            {
+                StartCoroutine(MoveCurrentObjectToMouse());
+                StartCoroutine(RotateFromMouseWheel());
+                StartCoroutine(CancelIfClicked());
+                StartCoroutine(ReleaseIfClicked());
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
+            }
+
+        }
+        if (deleteModeOn == true)
+        {
+            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
         }
     }
 
@@ -57,6 +73,12 @@ public class GroundPlacementController : MonoBehaviour
                     Destroy(currentPlaceableObject);
                     currentPlaceableObject = null;
                     Debug.Log("You are too broke");
+                }
+                else if (UpgradeAlreadyPurchased())
+                {
+                    Destroy(currentPlaceableObject);
+                    currentPlaceableObject = null;
+                    Debug.Log("Already got one of those");
                 }
                 else if (ThisItemRequiresSecondStory())
                 {
@@ -76,7 +98,7 @@ public class GroundPlacementController : MonoBehaviour
                 {
                     objectCurrentMaterialHolder = currentPlaceableObject.GetComponent<Renderer>().material;
                     currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
-                  
+
                 }
 
             }
@@ -91,10 +113,25 @@ public class GroundPlacementController : MonoBehaviour
             {
                 if (deleteModeOn)
                 {
-                    currentPlaceableObject = hitInfo.transform.gameObject;
-                    currentPlaceableObject.layer = 2;
-                    currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOff();
-                    Destroy(currentPlaceableObject);
+                    if (CanEditItem(hitInfo.transform.gameObject.tag) == false)
+                    {
+                        Debug.Log("Item Can't be sold");
+                    }
+                    else
+                    {
+                        currentPlaceableObject = hitInfo.transform.gameObject;
+                        if (currentPlaceableObject.GetComponent<ItemProperties>().noRefund == true)
+                        {
+                            Debug.Log("No refunds for this object");
+                        }
+                        else
+                        {
+                            refundMenu.SetActive(true);
+                            refundedGoldAmt.text = currentPlaceableObject.GetComponent<ItemProperties>().refund.ToString();
+                        }
+
+                    }
+
                 }
                 else
                 {
@@ -118,12 +155,29 @@ public class GroundPlacementController : MonoBehaviour
     public void EditMode()
     {
         editModeOn = !editModeOn;
-
+        if (deleteModeOn == true)
+        {
+            deleteModeOn = false;
+        }
     }
 
     public void DeleteMode()
     {
         deleteModeOn = !deleteModeOn;
+    }
+
+    public void RefundIt()
+    {
+        BarStatsHandler.GetComponent<BarStatsHandler>().totalGold += currentPlaceableObject.GetComponent<ItemProperties>().refund;
+        BarStatsHandler.GetComponent<BarStatsHandler>().totalBarAttractiveness -= currentPlaceableObject.GetComponent<ItemProperties>().barAttraction;
+        Destroy(currentPlaceableObject);
+        currentPlaceableObject = null;
+        refundMenu.SetActive(false);
+    }
+    public void DontRefundIt()
+    {
+        currentPlaceableObject = null;
+        refundMenu.SetActive(false);
     }
 
     private bool CostTooMuch()
@@ -147,6 +201,66 @@ public class GroundPlacementController : MonoBehaviour
         {
             return false;
         }
+    }
+    private bool UpgradeAlreadyPurchased()
+    {
+        if (BarStatsHandler.GetComponent<BarStatsHandler>().secondStory == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Second Story")
+        {
+            return true;
+        }
+        else if (BarStatsHandler.GetComponent<BarStatsHandler>().bedroomPurchased == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Bedroom")
+        {
+            return true;
+        }
+        else if (BarStatsHandler.GetComponent<BarStatsHandler>().planningRoomPurchased == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Planning Room")
+        {
+            return true;
+        }
+        else if (BarStatsHandler.GetComponent<BarStatsHandler>().kitchenPurchased == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Kitchen")
+        {
+            return true;
+        }
+        else if (BarStatsHandler.GetComponent<BarStatsHandler>().enchantingRoomPurchased == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Enchanting Room")
+        {
+            return true;
+        }
+        else if (BarStatsHandler.GetComponent<BarStatsHandler>().hearthFirePurchased == true && currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Hearthfire")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    } 
+    private void UpgradeInitialPurchase()
+    {
+        if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Second Story")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().secondStory = true;
+        }
+        else if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Bedroom")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().bedroomPurchased = true;
+        }
+        else if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Planning Room")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().planningRoomPurchased = true;
+        }
+        else if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Kitchen")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().kitchenPurchased = true;
+        }
+        else if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Enchanting Room")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().enchantingRoomPurchased = true;
+        }
+        else if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Hearthfire")
+        {
+            BarStatsHandler.GetComponent<BarStatsHandler>().hearthFirePurchased = true;
+        }
+        
+       
     }
 
     public bool CanEditItem (string objectTag)
@@ -174,7 +288,13 @@ public class GroundPlacementController : MonoBehaviour
             currentPlaceableObject.transform.position = hitInfo.point;
             currentPlaceableObject.transform.rotation = Quaternion.FromToRotation(Vector3.up, hitInfo.normal);
             //Debug.Log(hitInfo.transform.gameObject.tag);
-            if(hitInfo.transform.gameObject.tag == "Floor" && currentPlaceableObject.tag == "Floor Object")
+            if (currentPlaceableObject.GetComponent<RoomWarp>() != null && currentPlaceableObject.GetComponent<SphereCollider>() != null)
+            {
+                currentPlaceableObject.GetComponent<RoomWarp>().enabled = false;
+                currentPlaceableObject.GetComponent<SphereCollider>().enabled = false;
+                Debug.Log("yes it should be false");
+            }
+            if (hitInfo.transform.gameObject.tag == "Floor" && currentPlaceableObject.tag == "Floor Object")
             {
                 Debug.Log("I can place a floor object here");
                 onPlaceableSurface = true;
@@ -241,13 +361,17 @@ public class GroundPlacementController : MonoBehaviour
     IEnumerator CancelIfClicked()
     {
         yield return new WaitForSeconds(1);
-        if(Input.GetMouseButtonDown(1))
+        if(editModeOn == false)
         {
-            Destroy(currentPlaceableObject);
-            currentPlaceableObject = null;
-            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
-            currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+            if (Input.GetMouseButtonDown(1))
+            {
+                Destroy(currentPlaceableObject);
+                currentPlaceableObject = null;
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
+                currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
+            }
         }
+        
     }
 
     //this function handles placing the object when the player clicks
@@ -256,13 +380,15 @@ public class GroundPlacementController : MonoBehaviour
         yield return new WaitForSeconds(1);
         if (Input.GetMouseButtonDown(0) && onPlaceableSurface == true)
         {
-            if(editModeOn == false)
+            if(editModeOn == false)//dont change total gold or bar attraction if in edit mode
             {
                 BarStatsHandler.GetComponent<BarStatsHandler>().totalGold -= currentPlaceableObject.GetComponent<ItemProperties>().goldCost;
                 BarStatsHandler.GetComponent<BarStatsHandler>().totalBarAttractiveness += currentPlaceableObject.GetComponent<ItemProperties>().barAttraction;
             }
+            //set layer to default and give it it's original material
             currentPlaceableObject.layer = 0;
             currentPlaceableObject.GetComponent<Renderer>().material = objectCurrentMaterialHolder;
+            //change ceiling height if purchasing the second story
             if(currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Second Story")
             {
                 Vector3 ceilingPosition = secondStoryCeiling.transform.position;
@@ -270,33 +396,25 @@ public class GroundPlacementController : MonoBehaviour
                 BarStatsHandler.GetComponent<BarStatsHandler>().secondStory = true;
                 secondStoryCeiling.transform.position = ceilingPosition;
                 currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
-            }
-            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Enchanting Room")
-            {
-                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
-            }
-            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Planning Room")
-            {
                
-                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
             }
-            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Kitchen")
+            //enable door upgrades to work and mark that they are already purchased
+            if(currentPlaceableObject.GetComponent<RoomWarp>() != null && currentPlaceableObject.GetComponent<SphereCollider>() != null)
             {
-
                 currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
+                currentPlaceableObject.GetComponent<SphereCollider>().enabled = true;
+              
             }
-            if (currentPlaceableObject.GetComponent<ItemProperties>().itemName == "Bedroom")
-            {
 
-                currentPlaceableObject.GetComponent<RoomWarp>().enabled = true;
-            }
+            UpgradeInitialPurchase();
+
             currentPlaceableObject = null;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().isObjectPlaced = true;
             currentPlaceableObjectNameHolder.GetComponent<MenuHandler>().MenuToggleOn();
-            
-            if(editModeOn == true)
+
+            if (editModeOn == true)
             {
-                //if true stay true
+                //if editing continue editing
             }
             else
             {

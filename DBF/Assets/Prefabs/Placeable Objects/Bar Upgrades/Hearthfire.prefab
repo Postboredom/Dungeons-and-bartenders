@@ -356,11 +356,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 100
   barAttraction: 10
-  refund: 75
-  itemDescription: Must have 2nd story. A cozy hearthfire to play card games around
+  refund: 0
+  itemDescription: Non-refundable one time purchase. Must have 2nd story. A cozy hearthfire
   itemIcon: {fileID: 21300000, guid: b9fff69ff2765bc478dcb693a2580281, type: 3}
   itemName: Hearthfire
   secondStoryRequired: 1
+  noRefund: 1
 --- !u!114 &114726370145169558
 MonoBehaviour:
   m_ObjectHideFlags: 1

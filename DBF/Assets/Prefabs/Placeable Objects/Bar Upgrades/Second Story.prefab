@@ -402,12 +402,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 300
   barAttraction: 30
-  refund: 200
-  itemDescription: Attracts a lot of patrons because they believe two stories means
-    more alcohol
+  refund: 0
+  itemDescription: Non-refundable one time purchase. Two stories means more room for
+    alcohol
   itemIcon: {fileID: 21300000, guid: bb82758a2a074654984f2a580f2a6bba, type: 3}
   itemName: Second Story
   secondStoryRequired: 0
+  noRefund: 1
 --- !u!114 &114566328874217508
 MonoBehaviour:
   m_ObjectHideFlags: 1

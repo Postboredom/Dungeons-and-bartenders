@@ -266,11 +266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 300
   barAttraction: 30
-  refund: 20
-  itemDescription: Must have a 2nd story. Enchant your items to wonderous ends
+  refund: 0
+  itemDescription: Non-refundable one time purchase. Must have a 2nd story. Enchant
+    your beer
   itemIcon: {fileID: 21300000, guid: 9d1168bb7a0f4c045834446f5569449f, type: 3}
   itemName: Enchanting Room
   secondStoryRequired: 1
+  noRefund: 1
 --- !u!114 &114141297617587194
 MonoBehaviour:
   m_ObjectHideFlags: 1

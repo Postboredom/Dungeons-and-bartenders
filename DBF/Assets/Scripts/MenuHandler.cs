@@ -11,6 +11,7 @@ public class MenuHandler : MonoBehaviour {
     public GameObject playerObject;
     public string currentPlaceableObjectName;
     public bool isObjectPlaced;
+   
 
     private void Awake()
     {

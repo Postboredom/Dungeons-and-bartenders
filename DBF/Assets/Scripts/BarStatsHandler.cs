@@ -8,9 +8,16 @@ public class BarStatsHandler : MonoBehaviour {
 
     public int totalGold;
     public float totalBarAttractiveness;
-    public bool secondStory;
+    
     private GameObject spawner;
     private int spawns;
+
+    public bool secondStory;
+    public bool hearthFirePurchased;
+    public bool bedroomPurchased;
+    public bool kitchenPurchased;
+    public bool enchantingRoomPurchased;
+    public bool planningRoomPurchased;
 
     [SerializeField]
     private Text goldAmountText;
@@ -24,6 +31,11 @@ public class BarStatsHandler : MonoBehaviour {
         totalGold = 1500;
         totalBarAttractiveness = 10;
         secondStory = false;
+        planningRoomPurchased = false;
+        enchantingRoomPurchased = false;
+        kitchenPurchased = false;
+        bedroomPurchased = false;
+        hearthFirePurchased = false;
 	}
 	
 	// Update is called once per frame

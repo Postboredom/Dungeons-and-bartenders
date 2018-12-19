@@ -8,6 +8,7 @@ public class ItemHover : MonoBehaviour {
     [SerializeField]
     private Material hoverMaterial;
     private GameObject groundPlacementController;
+    private bool hoveredOver;
 
     private void Start()
     {
@@ -18,6 +19,7 @@ public class ItemHover : MonoBehaviour {
     {
         if (groundPlacementController.GetComponent<GroundPlacementController>().editModeOn == true)
         {
+            hoveredOver = true;
             objectCurrentMaterialHolder = GetComponent<Renderer>().material;
             GetComponent<Renderer>().material = hoverMaterial;
         }
@@ -33,6 +35,13 @@ public class ItemHover : MonoBehaviour {
     private void OnMouseExit()
     {
         if(groundPlacementController.GetComponent<GroundPlacementController>().editModeOn == true)
-            GetComponent<Renderer>().material = objectCurrentMaterialHolder;
+        {
+            if(hoveredOver == true)
+            {
+                GetComponent<Renderer>().material = objectCurrentMaterialHolder;
+                hoveredOver = false;
+            }
+        }
+            
     }
 }

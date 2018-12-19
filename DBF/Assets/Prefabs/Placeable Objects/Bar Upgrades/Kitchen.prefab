@@ -274,12 +274,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 200
   barAttraction: 20
-  refund: 132
-  itemDescription: Tired of using just your hotplate? Cook something your patrons
-    will love
+  refund: 0
+  itemDescription: Non-refundable one time purchase. This kitchen doesn't include
+    a toaster
   itemIcon: {fileID: 21300000, guid: 0806c06c15bfb8f4f8f1d73dbe0fd0ba, type: 3}
   itemName: Kitchen
   secondStoryRequired: 0
+  noRefund: 1
 --- !u!114 &114223801256734750
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -315,11 +315,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 200
   barAttraction: 20
-  refund: 132
-  itemDescription: A nice bedroom for your patrons to enjoy. Bed bug free since 1201
+  refund: 0
+  itemDescription: Non-refundable one time purchase. Bedbug free since 1201
   itemIcon: {fileID: 21300000, guid: 7b4073010a8c120498405238ea9bfc14, type: 3}
   itemName: Bedroom
   secondStoryRequired: 0
+  noRefund: 1
 --- !u!114 &114892285958419186
 MonoBehaviour:
   m_ObjectHideFlags: 1
