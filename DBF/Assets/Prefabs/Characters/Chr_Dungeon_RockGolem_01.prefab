@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 114243910008936970}
   - component: {fileID: 114531423307381494}
   - component: {fileID: 114161194572147618}
+  - component: {fileID: 114663754686650792}
   m_Layer: 0
   m_Name: Chr_Dungeon_RockGolem_01
   m_TagString: NPC
@@ -1241,6 +1242,34 @@ MonoBehaviour:
   strength: 0
   dex: 0
   speed: 0
+--- !u!114 &114663754686650792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276196823280602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags: []
+  assignedIndex: -1
+  assignedID: 0
+  assignedDialogue: 
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!136 &136793589191599346
 CapsuleCollider:
   m_ObjectHideFlags: 1

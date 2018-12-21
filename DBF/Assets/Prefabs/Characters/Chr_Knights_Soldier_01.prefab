@@ -598,6 +598,7 @@ GameObject:
   - component: {fileID: 114686595931140026}
   - component: {fileID: 114643274300231018}
   - component: {fileID: 114106139234071970}
+  - component: {fileID: 114272753225761194}
   m_Layer: 0
   m_Name: Chr_Knights_Soldier_01
   m_TagString: NPC
@@ -655,7 +656,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1995431209172320}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.549377, y: 159.4797, z: 172.65999}
+  m_LocalPosition: {x: 60.549377, y: 159.4797, z: 167.65999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4536393058649292}
@@ -1195,6 +1196,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2ffb5acb317d94e8764e5de04ecf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114272753225761194
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1995431209172320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags:
+  - Charlie
+  - CommentModifier
+  - CrazyCap
+  - DEMO_Condition
+  - demo_Narration
+  - Example3Dialogue
+  - Example4_dialogue
+  - Item_LookUp
+  - Laura
+  - MrCube
+  - NPC_Laughs
+  - NPCOnly
+  - QuestChartDemo
+  - TriggeredDude
+  - Witch
+  assignedIndex: 10
+  assignedID: 77190
+  assignedDialogue: NPC_Laughs
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!114 &114643274300231018
 MonoBehaviour:
   m_ObjectHideFlags: 1

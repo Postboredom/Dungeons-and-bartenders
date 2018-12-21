@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 114588171318275000}
   - component: {fileID: 114175145061250254}
   - component: {fileID: 114422839545576542}
+  - component: {fileID: 114481384508089434}
   m_Layer: 0
   m_Name: Chr_Western_Badguy_01
   m_TagString: NPC
@@ -1229,6 +1230,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2ffb5acb317d94e8764e5de04ecf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114481384508089434
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515055153070010}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags: []
+  assignedIndex: -1
+  assignedID: 0
+  assignedDialogue: 
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!114 &114588171318275000
 MonoBehaviour:
   m_ObjectHideFlags: 1

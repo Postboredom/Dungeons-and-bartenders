@@ -568,6 +568,7 @@ GameObject:
   - component: {fileID: 114011270469765148}
   - component: {fileID: 114475535858264348}
   - component: {fileID: 114159882502005926}
+  - component: {fileID: 114213750138373342}
   m_Layer: 0
   m_Name: Chr_Western_Woman_01
   m_TagString: NPC
@@ -1207,6 +1208,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2ffb5acb317d94e8764e5de04ecf85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114213750138373342
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1908860312677404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags: []
+  assignedIndex: -1
+  assignedID: 0
+  assignedDialogue: 
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!114 &114475535858264348
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 114962874016337794}
   - component: {fileID: 114008548408978072}
   - component: {fileID: 114592402464693232}
+  - component: {fileID: 114366718805589694}
   m_Layer: 0
   m_Name: Chr_Fantasy_FemalePeasant_01
   m_TagString: NPC
@@ -1199,6 +1200,34 @@ MonoBehaviour:
   strength: 0
   dex: 0
   speed: 0
+--- !u!114 &114366718805589694
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1273041164285130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags: []
+  assignedIndex: -1
+  assignedID: 0
+  assignedDialogue: 
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!114 &114402193579864978
 MonoBehaviour:
   m_ObjectHideFlags: 1

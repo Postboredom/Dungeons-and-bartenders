@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 114037351692840816}
   - component: {fileID: 114230547977291728}
   - component: {fileID: 114090510552728404}
+  - component: {fileID: 114344365761331806}
   m_Layer: 0
   m_Name: Chr_Western_TownMan_01
   m_TagString: NPC
@@ -1222,6 +1223,49 @@ MonoBehaviour:
   strength: 0
   dex: 0
   speed: 0
+--- !u!114 &114344365761331806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062712475684380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  diags:
+  - Charlie
+  - CommentModifier
+  - CrazyCap
+  - DEMO_Condition
+  - demo_Narration
+  - Example3Dialogue
+  - Example4_dialogue
+  - Item_LookUp
+  - Laura
+  - MrCube
+  - NPC_Laughs
+  - NPCOnly
+  - QuestChartDemo
+  - TriggeredDude
+  - Witch
+  assignedIndex: 10
+  assignedID: 77190
+  assignedDialogue: NPC_Laughs
+  interactionCount: 0
+  alias: 
+  overrideStartNode: -1
+  defaultNPCSprite: {fileID: 0}
+  defaultPlayerSprite: {fileID: 0}
+  targetManager: {fileID: 0}
+  preload: 0
+  notuptodate: 0
+  startp: 0
+  loadtag: 
+  langs: []
+  S_playerDiags: []
+  S_actionNodes: []
 --- !u!114 &114606406360262750
 MonoBehaviour:
   m_ObjectHideFlags: 1

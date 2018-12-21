@@ -9,8 +9,8 @@ public class NpcSpawn : MonoBehaviour
 {
     private static string Dflag;        //Dirty Flag Implimentation
     public string type;                 //Choses the type of Npc to spawn in SpawnNpc
-    public static GameObject[] chars;          //All the Character Prefabs pulled from the Resource folder
-    public static Transform spawnpoint; //Current Spawnpoint for the Npc
+    public GameObject[] chars;          //All the Character Prefabs pulled from the Resource folder
+    public Transform spawnpoint; //Current Spawnpoint for the Npc
     public Material[] material;         //The Material the Prefab will use
     private List<Material> tempmat;     //The list that will pull the materials and implement them
 
@@ -18,13 +18,14 @@ public class NpcSpawn : MonoBehaviour
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray(); //Get all Prefabs on awake
         tempmat = new List<Material>();
+        CreateRandNPC();
     }
 
     public void CreateRandNPC()
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.tag == "NPC").ToArray();
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
-        tempmat.Add(material[Random.Range(0, material.Length - 1)]);
+        //tempmat.Add(material[Random.Range(0, material.Length - 1)]); //adds material
         newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
         newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -46,7 +47,9 @@ public class NpcSpawn : MonoBehaviour
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.name.Contains(type)).ToArray();
         Debug.Log(chars.Length);
-        GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
+        int chosen = Random.Range(0, chars.Length - 1);
+        Debug.Log(chosen);
+        GameObject newchar = chars[chosen];
         tempmat.Add(material[Random.Range(0, material.Length - 1)]);
         newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
         newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
