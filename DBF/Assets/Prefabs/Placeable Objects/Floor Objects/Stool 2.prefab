@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64735650045160528}
   - component: {fileID: 114864005032685922}
   - component: {fileID: 208264762534594992}
+  - component: {fileID: 114627901107435260}
   m_Layer: 2
   m_Name: Stool 2
   m_TagString: Floor Object
@@ -100,6 +101,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 47a1e21cb2aaccf45aa6b0ed957a4f6e, type: 3}
+--- !u!114 &114627901107435260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1497789082676210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114864005032685922
 MonoBehaviour:
   m_ObjectHideFlags: 1

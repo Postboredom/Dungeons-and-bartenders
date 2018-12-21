@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64343151664953738}
   - component: {fileID: 208678766965117742}
   - component: {fileID: 114307427962922570}
+  - component: {fileID: 114733029363830290}
   m_Layer: 2
   m_Name: Candlestick
   m_TagString: Table Object
@@ -273,6 +274,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 4796142da1661bc4f86272c12ba539e9, type: 3}
   itemName: Candlestick
   secondStoryRequired: 0
+--- !u!114 &114733029363830290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1111272329313592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208678766965117742
 NavMeshObstacle:
   m_ObjectHideFlags: 1

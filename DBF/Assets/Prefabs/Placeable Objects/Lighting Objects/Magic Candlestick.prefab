@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23078994208985322}
   - component: {fileID: 64112845833772724}
   - component: {fileID: 114075177772636864}
+  - component: {fileID: 114625780750681900}
   m_Layer: 2
   m_Name: Magic Candlestick
   m_TagString: Table Object
@@ -258,3 +259,15 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 105e17112e093a24386c270a22bc38c3, type: 3}
   itemName: Magic Candlestick
   secondStoryRequired: 0
+--- !u!114 &114625780750681900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719760008906016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64977985209965216}
   - component: {fileID: 114430265015877222}
   - component: {fileID: 208701882784378354}
+  - component: {fileID: 114381032735083360}
   m_Layer: 2
   m_Name: Fancy Chair 2
   m_TagString: Floor Object
@@ -100,6 +101,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: c3166829efa21be4997af43b2b8ff07b, type: 3}
+--- !u!114 &114381032735083360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041759887417508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114430265015877222
 MonoBehaviour:
   m_ObjectHideFlags: 1

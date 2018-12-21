@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64139645225267116}
   - component: {fileID: 208322969221163854}
   - component: {fileID: 114146398991221294}
+  - component: {fileID: 114877771942160578}
   m_Layer: 2
   m_Name: Purple Crystal
   m_TagString: Floor Object
@@ -185,6 +186,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 9c04d6b55ea829c4ba127f20df4c29be, type: 3}
   itemName: Purple Crystal
   secondStoryRequired: 0
+--- !u!114 &114877771942160578
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1186543066864562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208322969221163854
 NavMeshObstacle:
   m_ObjectHideFlags: 1

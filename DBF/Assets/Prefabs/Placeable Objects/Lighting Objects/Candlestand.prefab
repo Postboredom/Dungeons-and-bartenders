@@ -78,6 +78,7 @@ GameObject:
   - component: {fileID: 64902783610656934}
   - component: {fileID: 208462421015200678}
   - component: {fileID: 114494038457373542}
+  - component: {fileID: 114323287690262984}
   m_Layer: 2
   m_Name: Candlestand
   m_TagString: Floor Object
@@ -108,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1864489065359580}
   m_LocalRotation: {x: 0, y: 0.29778907, z: 0, w: 0.95463175}
-  m_LocalPosition: {x: 64.9938, y: 159.4797, z: 170.37993}
+  m_LocalPosition: {x: 53.482796, y: 159.4797, z: 175.37845}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4795041841831982}
@@ -431,6 +432,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114323287690262984
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1864489065359580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114494038457373542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +462,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 8c8fc367eb227be46aaa84bc5f3b2322, type: 3}
   itemName: Candlestand
   secondStoryRequired: 0
+  noRefund: 0
 --- !u!208 &208462421015200678
 NavMeshObstacle:
   m_ObjectHideFlags: 1

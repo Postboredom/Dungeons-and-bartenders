@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 23101849019573192}
   - component: {fileID: 208000302328133808}
   - component: {fileID: 114706446299960402}
+  - component: {fileID: 114194542835822130}
+  - component: {fileID: 64284077744440860}
   m_Layer: 2
   m_Name: Blue Rug
   m_TagString: Floor Object
@@ -85,6 +87,32 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276450961387678}
   m_Mesh: {fileID: 4300000, guid: 65cd4cf4070464d4fb230a8d0efeaa4d, type: 3}
+--- !u!64 &64284077744440860
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276450961387678}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 65cd4cf4070464d4fb230a8d0efeaa4d, type: 3}
+--- !u!114 &114194542835822130
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276450961387678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114706446299960402
 MonoBehaviour:
   m_ObjectHideFlags: 1

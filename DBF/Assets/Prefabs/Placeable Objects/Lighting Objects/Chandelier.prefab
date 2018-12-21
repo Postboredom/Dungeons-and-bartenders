@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 64465442097038174}
   - component: {fileID: 208673017958921406}
   - component: {fileID: 114608237358801630}
+  - component: {fileID: 114898408818557312}
   m_Layer: 2
   m_Name: Chandelier
   m_TagString: Ceiling Object
@@ -623,6 +624,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 6b1d81e86b4595849bbc36a2bc543056, type: 3}
   itemName: Chandelier
   secondStoryRequired: 1
+--- !u!114 &114898408818557312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1867457249933038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208673017958921406
 NavMeshObstacle:
   m_ObjectHideFlags: 1

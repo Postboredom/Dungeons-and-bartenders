@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64942221793562322}
   - component: {fileID: 208127694862241658}
   - component: {fileID: 114384862201186592}
+  - component: {fileID: 114043173837167478}
   m_Layer: 2
   m_Name: Vase
   m_TagString: Floor Object
@@ -100,6 +101,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5935b1dc659e13e41958b63ed3561fd0, type: 3}
+--- !u!114 &114043173837167478
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1340351641843302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!114 &114384862201186592
 MonoBehaviour:
   m_ObjectHideFlags: 1

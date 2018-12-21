@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64939268780625392}
   - component: {fileID: 208014954408180222}
   - component: {fileID: 114278939285184606}
+  - component: {fileID: 114448922186934614}
   m_Layer: 2
   m_Name: Green Crystal
   m_TagString: Floor Object
@@ -185,6 +186,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 6f355f3c30fb9bb4c8f4643af059af2b, type: 3}
   itemName: Green Crystal
   secondStoryRequired: 0
+--- !u!114 &114448922186934614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271342830594740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208014954408180222
 NavMeshObstacle:
   m_ObjectHideFlags: 1

@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 23098116851784980}
   - component: {fileID: 64888548962928780}
   - component: {fileID: 114608918678398970}
+  - component: {fileID: 114726370145169558}
   m_Layer: 2
   m_Name: Hearthfire
   m_TagString: Wall Object
@@ -355,8 +356,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldCost: 100
   barAttraction: 10
-  refund: 75
-  itemDescription: Must have 2nd story. A cozy hearthfire to play card games around
+  refund: 0
+  itemDescription: Non-refundable one time purchase. Must have 2nd story. A cozy hearthfire
   itemIcon: {fileID: 21300000, guid: b9fff69ff2765bc478dcb693a2580281, type: 3}
   itemName: Hearthfire
   secondStoryRequired: 1
+  noRefund: 1
+--- !u!114 &114726370145169558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225283736325138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}

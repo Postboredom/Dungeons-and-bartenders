@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 64745730336925298}
   - component: {fileID: 114479714424837194}
   - component: {fileID: 208598268921323596}
+  - component: {fileID: 114539580622153818}
   m_Layer: 2
   m_Name: Fancy Bench
   m_TagString: Floor Object
@@ -118,6 +119,18 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 452056a2bb66b9542a861747284fc611, type: 3}
   itemName: Fancy Bench
   secondStoryRequired: 0
+--- !u!114 &114539580622153818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1668722816192976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 154dc89d834e9fb47a757b72e9345020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoverMaterial: {fileID: 2100000, guid: 3071a4d3ff4c3a141905550051f0bc11, type: 2}
 --- !u!208 &208598268921323596
 NavMeshObstacle:
   m_ObjectHideFlags: 1
