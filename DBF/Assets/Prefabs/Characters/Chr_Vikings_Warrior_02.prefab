@@ -1086,7 +1086,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1195489792764586}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 55.549377, y: 159.4797, z: 172.65999}
+  m_LocalPosition: {x: 60.549377, y: 159.4797, z: 167.65999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4298796833117300}
@@ -1238,10 +1238,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b8b99d8a12e39e4b94d2d7162c7c978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diags: []
-  assignedIndex: -1
-  assignedID: 0
-  assignedDialogue: 
+  diags:
+  - Charlie
+  - CommentModifier
+  - CrazyCap
+  - DEMO_Condition
+  - demo_Narration
+  - Example3Dialogue
+  - Example4_dialogue
+  - Item_LookUp
+  - Laura
+  - MrCube
+  - NPC_Laughs
+  - NPCOnly
+  - QuestChartDemo
+  - TriggeredDude
+  - Witch
+  assignedIndex: 10
+  assignedID: 77190
+  assignedDialogue: NPC_Laughs
   interactionCount: 0
   alias: 
   overrideStartNode: -1

@@ -9,6 +9,7 @@ public class StartingMenu : MonoBehaviour {
 	public void PlayGame()
     {
         SceneManager.LoadScene("Tavern");
+
     }
 
     //called from the quit game button in the main menu, closes the game

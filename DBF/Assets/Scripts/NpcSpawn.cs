@@ -38,7 +38,7 @@ public class NpcSpawn : MonoBehaviour
         {
             newchar.transform.position = spawnpoint.transform.position;
         }
-
+        newchar.GetComponent<VIDE_Assign>().assignedDialogue = "NPC_Laughs";
 
         Instantiate(newchar);
     }
