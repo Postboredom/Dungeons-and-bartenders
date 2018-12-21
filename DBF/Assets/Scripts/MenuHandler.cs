@@ -6,6 +6,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 
 public class MenuHandler : MonoBehaviour {
 
+
+    /// <summary>
+    /// this script handles interaction with the menu
+    /// </summary>
+
     public GameObject areaDecoratorUI;
     bool visibleUI = false;
     public GameObject playerObject;
@@ -25,10 +30,12 @@ public class MenuHandler : MonoBehaviour {
         
     }
 
+    // When you press "I", turn the menu on or off
     void MenuToggler()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
+            //if the menu is off turn it on
             if (visibleUI == false)
             {
                 MenuToggleOn();
@@ -41,6 +48,7 @@ public class MenuHandler : MonoBehaviour {
         }
        
     }
+    //enable the menu and the cursor and disable the first person controller for the character
     public void MenuToggleOn()
     {
         visibleUI = true;
@@ -48,12 +56,11 @@ public class MenuHandler : MonoBehaviour {
         playerObject.GetComponent<FirstPersonController>().enabled = false;
         playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor = false;
         Cursor.lockState = CursorLockMode.None;
-       // Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
       
-       // Debug.Log(Cursor.visible);
-       // Debug.Log(playerObject.GetComponent<FirstPersonController>().m_MouseLook.lockCursor);
+  
     }
+    //disable the menu and the cursor and enable the first person controller for the character
     public void MenuToggleOff()
     {
         playerObject.GetComponent<FirstPersonController>().enabled = true;
@@ -63,6 +70,8 @@ public class MenuHandler : MonoBehaviour {
         Cursor.visible = false;
         visibleUI = false;
     }
+
+    //this is attached to each item button. It stores the name of the button that was pressed in the variable currentPlaceableObjectName
     public void ObjectButtonPressed()
     {
         currentPlaceableObjectName = EventSystem.current.currentSelectedGameObject.name;
