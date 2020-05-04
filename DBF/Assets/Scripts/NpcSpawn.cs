@@ -64,7 +64,12 @@ public class NpcSpawn : MonoBehaviour
     {
         chars = Resources.FindObjectsOfTypeAll(typeof(GameObject)).Cast<GameObject>().Where(g => g.name.Contains(type)).ToArray();
         Debug.Log(chars.Length);
+<<<<<<< Updated upstream
         GameObject newchar = chars[Random.Range(0, chars.Length - 1)];
+=======
+        int chosen = Random.Range(0, chars.Length - 1);
+        GameObject newchar = chars[chosen];
+>>>>>>> Stashed changes
         tempmat.Add(material[Random.Range(0, material.Length - 1)]);
         newchar.GetComponentInChildren<SkinnedMeshRenderer>().GetSharedMaterials(tempmat);
         newchar.GetComponent<AICharacterControl>().target = GameObject.FindGameObjectWithTag("Player").transform;
